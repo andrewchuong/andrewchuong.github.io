@@ -46,6 +46,10 @@ a,
   transition: all 0.125s ease-in-out 0s;
 }
 
+video {
+  filter: brightness(40%);
+}
+
 .client-logo,
 .gallery-caption,
 .gallery-image:after,
@@ -135,12 +139,12 @@ a,
 .fa-icons > div > i {
   display: inline-block;
   margin-right: 5px;
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 160px;
+  min-height: 160px;
   border-right: 1px solid #f1f1f1;
-  line-height: 40px;
+  line-height: 160px;
   text-align: center;
-  font-size: 14px;
+  font-size: 114px;
 }
 
 .help-block ul {
@@ -919,7 +923,7 @@ blockquote {
 .module-subtitle {
   text-align: center;
   font-size: 16px;
-  color: #111;
+  color: #fff;
   margin-bottom: 70px;
 }
 
