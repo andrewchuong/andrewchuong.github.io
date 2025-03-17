@@ -42,7 +42,7 @@
     <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
-    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
     <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
     <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
@@ -72,6 +72,38 @@
           width: 50px !important;
           height: 50px !important;
         }
+      }
+
+      /* Social Media Icons Styling */
+      .navbar-nav > li > a i {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+
+      .navbar-nav > li > a:hover i {
+        transform: scale(1.2);
+      }
+
+      .navbar-nav > li {
+        margin: 0 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Ensure navbar brand (VICI.PR) and icons are vertically centered */
+      .navbar-brand,
+      .navbar-nav > li > a {
+        line-height: 50px;
+        height: 50px;
+        padding: 0;
+        display: flex;
+        align-items: center;
       }
 
       /* Fix hover overlay positioning */
@@ -141,13 +173,12 @@
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="mailto:booking@vicipr.com"><i class="fa fa-envelope"></i></a></li>
-              <li><a href="https://www.instagram.com/itsvicimusic/"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="https://tiktok.com/@vici.pr/"><img class="fa" src="assets/images/tiktok-icon.png"></i></a></li>
-              <li><a href="https://www.twitter.com/itsvicimusic/"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="https://www.youtube.com/channel/UCcNAkc2Uk7mHe_OfsZSI8jA"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="https://open.spotify.com/artist/0KSoxL4VVenc6aDlPyk8H7?si=8f81f9e896d24cdc"><i class="fa fa-spotify"></i></a></li>
-              <li><a href="https://music.apple.com/us/artist/vici-pr/1479782036"><i class="fa fa-apple"></i></a></li>
+              <li><a href="mailto:booking@vicipr.com"><i class="fas fa-envelope"></i></a></li>
+              <li><a href="https://www.instagram.com/itsvicimusic/"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="https://tiktok.com/@vici.pr/"><i class="fab fa-tiktok"></i></a></li>
+              <li><a href="https://www.youtube.com/channel/UCcNAkc2Uk7mHe_OfsZSI8jA"><i class="fab fa-youtube"></i></a></li>
+              <li><a href="https://open.spotify.com/artist/0KSoxL4VVenc6aDlPyk8H7?si=8f81f9e896d24cdc"><i class="fab fa-spotify"></i></a></li>
+              <li><a href="https://music.apple.com/us/artist/vici-pr/1479782036"><i class="fab fa-apple"></i></a></li>
             </ul>
           </div>
         </div>
