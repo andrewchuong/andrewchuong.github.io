@@ -42,7 +42,7 @@
     <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
-    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
     <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
     <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
@@ -52,6 +52,134 @@
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+    <style>
+      @media (max-width: 767px) {
+        .video-carousel {
+          width: 180% !important;
+          margin-left: -40% !important;
+        }
+        /* Make music links always visible on mobile */
+        .work-caption {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+        }
+        .work-image img {
+          transform: scale(1) !important;
+        }
+        /* Adjust size and spacing of buttons for better touch targets */
+        .work-descr .btn {
+          margin: 5px !important;
+          width: 50px !important;
+          height: 50px !important;
+        }
+      }
+
+      /* Social Media Icons Styling */
+      .navbar-nav > li > a i {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+
+      .navbar-nav > li > a:hover i {
+        transform: scale(1.2);
+      }
+
+      .navbar-nav > li {
+        margin: 0 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Ensure navbar brand (VICI.PR) and icons are vertically centered */
+      .navbar-brand,
+      .navbar-nav > li > a {
+        line-height: 50px;
+        height: 50px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Fix hover overlay positioning */
+      .work-item {
+        position: relative;
+        overflow: hidden;
+      }
+      .work-title-wrapper {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .work-title {
+        font-size: 16px;
+        color: #ffffff !important;
+        font-weight: bold;
+        margin: 0;
+        padding: 10px;
+      }
+      .work-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .work-descr {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-items: center;
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      .work-descr .btn {
+        padding: 0;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .work-descr .btn i {
+        font-size: 20px;
+      }
+
+      /* Ensure title is white */
+      .work-title-wrapper h3,
+      .work-title {
+        color: #ffffff !important;
+      }
+
+      /* Add this to your existing styles */
+      .navbar-custom {
+        transition: background-color 0.3s ease;
+        background-color: transparent;
+      }
+
+      .navbar-custom.navbar-transparent {
+        background-color: transparent !important;
+      }
+
+      .navbar-custom:not(.navbar-transparent) {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+      }
+
+      /* Ensure the VICI.PR text and icons remain visible */
+      .navbar-custom .navbar-brand,
+      .navbar-custom .navbar-nav > li > a {
+        color: #fff !important;
+      }
+    </style>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60" class="bg-dark">
     <main>
@@ -65,13 +193,12 @@
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="mailto:booking@vicipr.com"><i class="fa fa-envelope"></i></a></li>
-              <li><a href="https://www.instagram.com/itsvicimusic/"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="https://tiktok.com/@vici.pr/"><img class="fa" src="assets/images/tiktok-icon.png"></i></a></li>
-              <li><a href="https://www.twitter.com/itsvicimusic/"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="https://www.youtube.com/channel/UCcNAkc2Uk7mHe_OfsZSI8jA"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="https://open.spotify.com/artist/0KSoxL4VVenc6aDlPyk8H7?si=8f81f9e896d24cdc"><i class="fa fa-spotify"></i></a></li>
-              <li><a href="https://music.apple.com/us/artist/vici-pr/1479782036"><i class="fa fa-apple"></i></a></li>
+              <li><a href="mailto:booking@vicipr.com"><i class="fas fa-envelope"></i></a></li>
+              <li><a href="https://www.instagram.com/itsvicimusic/"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="https://tiktok.com/@vici.pr/"><i class="fab fa-tiktok"></i></a></li>
+              <li><a href="https://www.youtube.com/channel/UCcNAkc2Uk7mHe_OfsZSI8jA"><i class="fab fa-youtube"></i></a></li>
+              <li><a href="https://open.spotify.com/artist/0KSoxL4VVenc6aDlPyk8H7?si=8f81f9e896d24cdc"><i class="fab fa-spotify"></i></a></li>
+              <li><a href="https://music.apple.com/us/artist/vici-pr/1479782036"><i class="fab fa-apple"></i></a></li>
             </ul>
           </div>
         </div>
@@ -97,12 +224,12 @@
         </div>
       </section> -->
       <div class="main" class="bg-dark">
-        <section class="module bg-dark" id="alt-features">
+        <section class="module bg-dark" id="alt-features" style="padding-top: 40px;">
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
                 <!-- <h2 class="module-title font-alt">Bio</h2> -->
-                <div class="module-subtitle font-serif">Growing up, Vici.PR got his start in hip hop as a Bboy or a breakdancer. Through breaking and participating in local events he established his own style and affinity for the culture. After events he would always freestyle with his crew outside. Eventually these became more frequent and he decided to take up music seriously.  Vici’s sound is inspired by the 90s and early 2000s hip hop and R&B he grew up listening to.</div>
+                <div class="module-subtitle font-serif">Growing up, Vici.PR got his start in hip hop as a Bboy or a breakdancer. Through breaking and participating in local events he established his own style and affinity for the culture. After events he would always freestyle with his crew outside. Eventually these became more frequent and he decided to take up music seriously.  Vici's sound is inspired by the 90s and early 2000s hip hop and R&B he grew up listening to.</div>
                 <iframe src="https://open.spotify.com/embed/playlist/54wozaRYvjXPZ4tgsVOYNh?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               </div>
             </div>
@@ -111,14 +238,26 @@
             </div>
           </div>
         </section>
-        <section class="module bg-dark-60" data-background="assets/images/DSC06448.jpg">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="video-box">
-                  <div class="video-box-icon"><a target="_blank" href="https://www.youtube.com/watch?v=dRiNo2KVlJs"><span class="icon-video"></span></a></div>
-                  <div class="video-title font-alt">Watch</div>
-                  <div class="video-subtitle font-alt">Ain't Worried Music Video OUT NOW!!</div>
+        <section class="module bg-dark-60" data-background="assets/images/DSC06448.jpg" style="padding: 60px 0 !important;">
+          <div style="width: 100%;">
+            <div class="row" style="margin: 0; padding: 0; width: 100%;">
+              <div class="col-sm-12" style="padding: 0;">
+                <div class="owl-carousel video-carousel" style="width: 100%;">
+                  <div class="item">
+                    <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
+                      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/0cV0NXmCyjo?si=Td6yKNuuq23SKVjg&modestbranding=1&showinfo=0&controls=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
+                      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/1YLwYiOnO8Q?si=YwuMGgcwSPsqvTHX&modestbranding=1&showinfo=0&controls=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
+                      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/o_Zo7COZHqQ?si=uWt-QKpaaoUqa5mb&modestbranding=1&showinfo=0&controls=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -140,43 +279,103 @@
               </div>
             </div>
           </div>
-          <ul class="works-grid works-grid-gut works-grid-3 works-hover-w" id="works-grid">
+          <ul class="works-grid works-grid-gut works-grid-5 works-hover-w" id="works-grid">
             <li class="work-item illustration webdesign">
-              <div class="work-image"><img src="assets/images/discography/Chasing Dayz.png" alt="Chasing Dayz"/></div>
+              <div class="work-image">
+                <a href="chasing-dayz.html" style="display: block;">
+                  <img src="assets/images/discography/Chasing Dayz.png" alt="Chasing Dayz"/>
+                </a>
+              </div>
               <div class="work-caption font-alt">
-                <h3 class="work-title">Chasing Dayz</h3>
-                <div class="work-descr">Chasing Dayz is the first collaboration track between Vici.PR and Manchureon. The song is written as a real life representation of both artists hustle to pursue their musical passion while juggling full time jobs.</div>
-              </div></li>
+                <h3 class="work-title"><a href="chasing-dayz.html" style="color: #ffffff;">Chasing Dayz</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
             <li class="work-item illustration webdesign">
-              <div class="work-image"><img src="assets/images/discography/Ain't Worried.jpg" alt="Ain't Worried"/></div>
+              <div class="work-image">
+                <a href="aint-worried.html">
+                  <img src="assets/images/discography/Ain't Worried.jpg" alt="Ain't Worried"/>
+                </a>
+              </div>
               <div class="work-caption font-alt">
-                <h3 class="work-title">Ain't Worried </h3>
-                <div class="work-descr">Ain't worried is the first collaboration track between Vici.PR and Sitch. Sitch is based out of the East Coast and Vici is based out of the West Coast.  Both artists connected through an online group page and linked up to create a fun summer track.  The track was created during the peak of quarantine during the Covid-19 pandemic.  The song tells a story of the first time being back outside again.</div>
-              </div></li>
+                <h3 class="work-title"><a href="aint-worried.html" style="color: #ffffff;">Ain't Worried</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
             <li class="work-item illustration webdesign">
-                <div class="work-image"><img src="assets/images/discography/Please Don't Let Me Go.png" alt="Please Don't Let Me Go"/></div>
-                <div class="work-caption font-alt">
-                  <h3 class="work-title">Please Don't Let Me Go</h3>
-                  <div class="work-descr">Please Don't Let Me Go embodies the fun aspect of hip-hop that Vici grew up with. G-funk music is where Vici feels most comfortable in his rap and this song captures his ability.</div>
-                </div></li>
+              <div class="work-image">
+                <a href="please-dont-let-me-go.html">
+                  <img src="assets/images/discography/Please Don't Let Me Go.png" alt="Please Don't Let Me Go"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="please-dont-let-me-go.html" style="color: #ffffff;">Please Don't Let Me Go</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
             <li class="work-item illustration webdesign">
-                <div class="work-image"><img src="assets/images/discography/Seen Her Before.jpeg" alt="Seen Her Before"/></div>
-                <div class="work-caption font-alt">
-                  <h3 class="work-title">Seen Her Before</h3>
-                  <div class="work-descr">Seen Her Before is the collaboration between Vici.PR and Meel.  Both artists grew up together since middle school.  They are both heavily inspired by the 90s era of hip-hop.  This song draws inspiration from the classic Tupac song "All About You" and showcases the indivudal artists own style.</div>
-                </div></li>
+              <div class="work-image">
+                <a href="seen-her-before.html">
+                  <img src="assets/images/discography/Seen Her Before.jpeg" alt="Seen Her Before"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="seen-her-before.html" style="color: #ffffff;">Seen Her Before</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
             <li class="work-item illustration webdesign">
-                <div class="work-image"><img src="assets/images/discography/Please Don't Hurt Me.jpg" alt="Please Don't Hurt Me"/></div>
-                <div class="work-caption font-alt">
-                  <h3 class="work-title">Please Don't Hurt Me</h3>
-                  <div class="work-descr">Vici.PR and Ashya connected when they both participated in the Joy Ruckus Club music video.  They recorded this collaboration track in Koreatown before the show.</div>
+              <div class="work-image">
+                <a href="please-dont-hurt-me.html">
+                  <img src="assets/images/discography/Please Don't Hurt Me.jpg" alt="Please Don't Hurt Me"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="please-dont-hurt-me.html" style="color: #ffffff;">Please Don't Hurt Me</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
             <li class="work-item illustration webdesign">
-                <div class="work-image"><img src="assets/images/discography/Looking Back.jpg" alt="Looking Back"/></div>
-                <div class="work-caption font-alt">
-                  <h3 class="work-title">Looking Back</h3>
-                  <div class="work-descr">Looking Back is Vici.PR's first studio album.  After 5 years of making music, it is a benchmark in his progression as an artist.</div>
-                </div></li>
-           
+              <div class="work-image">
+                <a href="looking-back.html">
+                  <img src="assets/images/discography/Looking Back.jpg" alt="Looking Back"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="looking-back.html" style="color: #ffffff;">Looking Back</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
           </ul>
         </section>
         <!-- where the black portfolio section was -->
@@ -201,7 +400,7 @@
         <footer class="footer bg-dark">
           <div class="container">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-6 col-sm-offset-3 text-center">
                 <p class="copyright font-alt">For booking, contact <a href="mailto:booking@vicipr.com">booking@vicipr.com</a></p>
               </div>
               <!-- where the footer socials were -->
@@ -228,5 +427,46 @@
     <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      $(document).ready(function(){
+        // Handle navbar background on scroll
+        $(window).scroll(function() {
+          if ($(window).scrollTop() > 50) {
+            $('.navbar-custom').removeClass('navbar-transparent');
+          } else {
+            $('.navbar-custom').addClass('navbar-transparent');
+          }
+        });
+
+        $('.video-carousel').owlCarousel({
+          items: 1,
+          loop: true,
+          margin: 120,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+          responsive: {
+            0: {
+              items: 1,
+              margin: 20,
+              nav: false,
+              dots: true
+            },
+            768: {
+              items: 1,
+              margin: 60,
+              nav: true
+            },
+            992: {
+              items: 1,
+              margin: 120
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
