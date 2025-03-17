@@ -55,9 +55,77 @@
     <style>
       @media (max-width: 767px) {
         .video-carousel {
-          width: 250% !important;
+          width: 180% !important;
           margin-left: -40% !important;
         }
+        /* Make music links always visible on mobile */
+        .work-caption {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+        }
+        .work-image img {
+          transform: scale(1) !important;
+        }
+        /* Adjust size and spacing of buttons for better touch targets */
+        .work-descr .btn {
+          margin: 5px !important;
+          width: 50px !important;
+          height: 50px !important;
+        }
+      }
+
+      /* Fix hover overlay positioning */
+      .work-item {
+        position: relative;
+        overflow: hidden;
+      }
+      .work-title-wrapper {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .work-title {
+        font-size: 16px;
+        color: #ffffff !important;
+        font-weight: bold;
+        margin: 0;
+        padding: 10px;
+      }
+      .work-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .work-descr {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-items: center;
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      .work-descr .btn {
+        padding: 0;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .work-descr .btn i {
+        font-size: 20px;
+      }
+
+      /* Ensure title is white */
+      .work-title-wrapper h3,
+      .work-title {
+        color: #ffffff !important;
       }
     </style>
   </head>
@@ -163,10 +231,12 @@
           <ul class="works-grid works-grid-gut works-grid-5 works-hover-w" id="works-grid">
             <li class="work-item illustration webdesign">
               <div class="work-image"><img src="assets/images/discography/Chasing Dayz.png" alt="Chasing Dayz"/></div>
-              <div class="work-caption font-alt">
+              <div class="work-title-wrapper">
                 <h3 class="work-title">Chasing Dayz</h3>
+              </div>
+              <div class="work-caption">
                 <div class="work-descr">
-                  <a href="https://open.spotify.com/track/0qdSHpXRlYwVfPWAnsT6Ut?si=28d85b281e6840f6" target="_blank" class="btn btn-d btn-circle"><i class="fa fa-spotify"></i></a>
+                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fa fa-spotify"></i></a>
                   <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fa fa-apple"></i></a>
                   <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fa fa-youtube"></i></a>
                   <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fa fa-amazon"></i></a>
