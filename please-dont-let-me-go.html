@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Please Don't Let Me Go - VICI.PR</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+      }
+      .song-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: center;
+      }
+      .song-image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 30px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .song-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .song-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+      .platform-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .platform-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 20px;
+        border-radius: 10px;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .platform-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+        color: #fff;
+      }
+      .platform-link i {
+        margin-right: 10px;
+        font-size: 24px;
+      }
+      .back-link {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+      }
+      .back-link:hover {
+        color: #fff;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/" class="back-link"><i class="fa fa-arrow-left"></i> Back</a>
+    <div class="song-container">
+      <div class="song-image">
+        <img src="assets/images/discography/Please Don't Let Me Go.png" alt="Please Don't Let Me Go">
+      </div>
+      <h1 class="song-title">Please Don't Let Me Go</h1>
+      <div class="platform-links">
+        <a href="https://vicipr.com" class="platform-link" target="_blank">
+          <i class="fa fa-home"></i>
+          Main Page
+        </a>
+        <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" class="platform-link" target="_blank">
+          <i class="fa fa-spotify"></i>
+          Listen on Spotify
+        </a>
+        <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" class="platform-link" target="_blank">
+          <i class="fa fa-apple"></i>
+          Listen on Apple Music
+        </a>
+        <a href="https://youtube.com/YOUR_YOUTUBE_ID" class="platform-link" target="_blank">
+          <i class="fa fa-youtube-play"></i>
+          Watch on YouTube
+        </a>
+        <a href="https://amazon.com/YOUR_AMAZON_ID" class="platform-link" target="_blank">
+          <i class="fa fa-amazon"></i>
+          Listen on Amazon Music
+        </a>
+      </div>
+    </div>
+  </body>
+</html> 
