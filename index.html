@@ -71,16 +71,59 @@
         /* Make music links always visible on mobile */
         .work-caption {
           opacity: 1 !important;
-          transform: translateY(0) !important;
+          transform: none !important;
+          bottom: 0 !important;
         }
         .work-image img {
           transform: scale(1) !important;
+        }
+        /* Prevent all hover animations on mobile */
+        .work-item:hover .work-image img {
+          transform: scale(1) !important;
+        }
+        .work-item:hover .work-caption {
+          transform: none !important;
+        }
+        .work-title, .work-descr {
+          transform: none !important;
         }
         /* Adjust size and spacing of buttons for better touch targets */
         .work-descr .btn {
           margin: 5px !important;
           width: 50px !important;
           height: 50px !important;
+          transform: none !important;
+        }
+        .work-descr .btn:hover {
+          transform: none !important;
+        }
+        /* Keep social media icons visible on mobile */
+        .navbar-header {
+          float: left;
+        }
+        .navbar-nav {
+          float: right;
+          margin: 0;
+          display: flex !important;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+        }
+        .navbar-nav > li {
+          float: left;
+          margin: 0 8px;
+        }
+        .navbar-toggle {
+          display: none;
+        }
+        .navbar-collapse {
+          display: block !important;
+          height: auto !important;
+          padding-bottom: 0;
+          overflow: visible !important;
+          border-top: 0;
+        }
+        .navbar-brand {
+          padding-left: 15px;
         }
       }
 
@@ -181,13 +224,24 @@
       }
 
       .navbar-custom:not(.navbar-transparent) {
-        background-color: rgba(0, 0, 0, 0.9) !important;
+        background-color: rgba(0, 0, 0, 0.4) !important;
       }
 
       /* Ensure the VICI.PR text and icons remain visible */
       .navbar-custom .navbar-brand,
       .navbar-custom .navbar-nav > li > a {
         color: #fff !important;
+      }
+
+      .work-image {
+        position: relative;
+        overflow: hidden;
+        background-color: #000;
+      }
+      .work-image img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
     </style>
   </head>
@@ -199,7 +253,7 @@
       <nav class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#">VICI.PR</a>
+            <a class="navbar-brand" href="#">VICI.PR</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -240,7 +294,7 @@
               <div class="col-sm-6 col-sm-offset-3">
                 <!-- <h2 class="module-title font-alt">Bio</h2> -->
                 <div class="module-subtitle font-serif">Growing up, Vici.PR got his start in hip hop as a Bboy or a breakdancer. Through breaking and participating in local events he established his own style and affinity for the culture. After events he would always freestyle with his crew outside. Eventually these became more frequent and he decided to take up music seriously.  Vici's sound is inspired by the 90s and early 2000s hip hop and R&B he grew up listening to.</div>
-                <iframe src="https://open.spotify.com/embed/playlist/54wozaRYvjXPZ4tgsVOYNh?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe src="https://open.spotify.com/embed/playlist/54wozaRYvjXPZ4tgsVOYNh?theme=0" width="100%" height="600" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               </div>
             </div>
             <div class="row">
@@ -313,17 +367,17 @@
           <ul class="works-grid works-grid-gut works-grid-5 works-hover-w" id="works-grid">
             <li class="work-item illustration webdesign">
               <div class="work-image">
-                <a href="on-time.html">
-                  <img src="assets/images/discography/On Time.jpg" alt="On Time"/>
+                <a href="reignaissance.html">
+                  <img src="assets/images/discography/On Time.jpg" alt="Reignaissance"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
-                <h3 class="work-title"><a href="on-time.html" style="color: #ffffff;">On Time</a></h3>
+                <h3 class="work-title"><a href="reignaissance.html" style="color: #ffffff;">Reignaissance</a></h3>
                 <div class="work-descr">
-                  <a href="https://open.spotify.com/track/2c5a4P2syFZr0jdFuAIEy3?si=0409241f851c4767" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
-                  <a href="https://music.apple.com/us/album/on-time/1797649976?i=1797649977" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
-                  <a href="https://music.youtube.com/watch?v=DKQ_RmssGuo&si=-xerQTHPBi5IvOVj" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
-                  <a href="https://music.amazon.com/albums/B0DXJ2TL5K?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_S2bF2nCQOPLyTPrBsNMK4WULP&trackAsin=B0DXJL31K2" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                  <a href="https://open.spotify.com/album/3N9p38R4iXJibX2HvGWQqW?si=E-sWpC9NRFmCPOWNLfVzWw" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/reignaissance/1797649976" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/playlist?list=OLAK5uy_lSWJSGjQqPrGfa6CEptGEyM9K6nwvVKx8" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B0DXJ2TL5K?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_LC953qLhnqIsue6TFvUU6SeX1" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
                 </div>
               </div>
             </li>
@@ -368,10 +422,10 @@
               <div class="work-caption font-alt">
                 <h3 class="work-title"><a href="please-dont-let-me-go.html" style="color: #ffffff;">Please Don't Let Me Go</a></h3>
                 <div class="work-descr">
-                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
-                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
-                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
-                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                  <a href="https://open.spotify.com/track/408R9IPEgXZN2wupYMcARa?si=b61fb065691d4503" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/please-dont-let-me-go/1544019931?i=1544019932" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=1k2WquuTYf4&si=_zLjZhfSFH_NJZ17" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B08Q34XH7G?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_mc24TMrmn8s6giXeKRJIrNxP4&trackAsin=B08Q42PGLT" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
                 </div>
               </div>
             </li>
@@ -384,10 +438,10 @@
               <div class="work-caption font-alt">
                 <h3 class="work-title"><a href="please-dont-hurt-me.html" style="color: #ffffff;">Please Don't Hurt Me</a></h3>
                 <div class="work-descr">
-                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
-                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
-                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
-                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                  <a href="https://open.spotify.com/track/3sc0kHiLv1WUKMCDlxzXCR?si=2c66a59546af42d9" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/please-dont-hurt-me-feat-ashya/1574538115?i=1574538116" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=D-MKEOUEZM4&si=X98Hn634XDeFWoeg" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B098BZR65D?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_t0b4twsxc4gPw0DxeEsLVCcpS&trackAsin=B098BP6THT" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
                 </div>
               </div>
             </li>
@@ -416,10 +470,58 @@
               <div class="work-caption font-alt">
                 <h3 class="work-title"><a href="seen-her-before.html" style="color: #ffffff;">Seen Her Before</a></h3>
                 <div class="work-descr">
-                  <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
-                  <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
-                  <a href="https://youtube.com/YOUR_YOUTUBE_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
-                  <a href="https://amazon.com/YOUR_AMAZON_ID" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                  <a href="https://open.spotify.com/track/5qJnceZOO5cLnq7EX0aurG?si=a34ea046c0884a62" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/seen-her-before-feat-meel/1576361055?i=1576361057" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=lP3-pbaqwDA&si=0AXlXdcvfAbuPF9g" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B0999PJ7R6?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_NbHFTYzj759x8Yf29I9udQwig&trackAsin=B0999PY1JB" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="crazy.html">
+                  <img src="assets/images/discography/Crazy.jpg" alt="Crazy"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="crazy.html" style="color: #ffffff;">Crazy</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/0Cv4JjcRxwjqQxael2OE3b?si=7dbfbe249a9b4afe" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/crazy-single/1479781973" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=7mCoJntN_2s&si=huym4ocdak1kovxv" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B07XLGYPJH?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_A5D8kJ7k8XVxqlGjck6zMa6P0&trackAsin=B07XLFWNVG" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="drought.html">
+                  <img src="assets/images/discography/Drought.jpg" alt="Drought"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="drought.html" style="color: #ffffff;">Drought</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/6FcVFW3q1ReAHlHzjuKeSG?si=cee4d1b4767d4a16" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/drought/1599318873?i=1599318874" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=cHmJGFR9wsI&si=QDefOk84jnl8a8jW" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B09N9VBZ95?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_VLAzkecV1rh40oUTToFuac216&trackAsin=B09N9T8K55" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="simp-boyz.html">
+                  <img src="assets/images/discography/Simp-Boyz.png" alt="Simp Boyz" style="background-color: #000; display: block;"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="simp-boyz.html" style="color: #ffffff;">Simp Boyz</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/6qIe0sC4AlYPfTUAJgkLzx?si=eb11870498a94d4e" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/simp-boyz-only-feat-mami-mia-single/1623592651" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=zbCNB3ImONo&si=PfCsZktyTOGSp7MH" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B0B12Z9ZR8?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Z3R9pKruCv9yP0ghcVbnGAEoa&trackAsin=B0B132B9XB" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
                 </div>
               </div>
             </li>
