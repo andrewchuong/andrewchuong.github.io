@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reignaissance - VICI.PR</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/Website Favicon.png">
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+    <style>
+      /* Custom cursor styles */
+      body {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M12 12 C12 12 13 8 18 8 C23 8 26 10 28 14 C30 18 30 22 28 25 C26 28 22 30 18 30 C14 30 12 28 10 25 C8 22 8 18 10 14 C12 10 12 12 12 12" fill="%23FFD700" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><path d="M10 16 L6 16 C4 16 3 17 3 18 L3 19 C3 20 4 20 6 20" fill="%23FFC0CB" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="%23000000"/></svg>') 20 20, auto;
+        background-color: #1a1a1a;
+      }
+
+      /* Ensure clickable elements still show pointer cursor */
+      a, button, [role="button"] {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M12 12 C12 12 13 8 18 8 C23 8 26 10 28 14 C30 18 30 22 28 25 C26 28 22 30 18 30 C14 30 12 28 10 25 C8 22 8 18 10 14 C12 10 12 12 12 12" fill="%23FFD700" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><path d="M10 16 L6 16 C4 16 3 17 3 18 L3 19 C3 20 4 20 6 20" fill="%23FFC0CB" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="%23000000"/></svg>') 20 20, pointer;
+      }
+
+      .container {
+        margin-top: 80px;
+      }
+
+      .song-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .song-title {
+        color: #ffffff;
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .streaming-buttons {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        width: 100%;
+      }
+
+      .streaming-button {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        width: 200px;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .streaming-button:hover {
+        transform: scale(1.05);
+        background-color: #444;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .streaming-button i {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+
+      .album-title {
+        color: #ffffff;
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: bold;
+      }
+
+      .divider {
+        height: 2px;
+        background-color: #333;
+        margin: 40px 0;
+      }
+
+      .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        z-index: 1000;
+      }
+
+      .back-button:hover {
+        color: #FFD700;
+        text-decoration: none;
+      }
+
+      .album-artwork {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto 30px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .album-artwork img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+    
+    <div class="container">
+      <div class="album-artwork">
+        <img src="assets/images/discography/On Time.jpg" alt="Reignaissance Album Artwork"/>
+      </div>
+
+      <h1 class="album-title">Reignaissance</h1>
+
+      <!-- Magic Trick -->
+      <div class="song-title">Magic Trick</div>
+      <div class="streaming-buttons">
+        <a href="magic-trick.html" target="_blank" class="streaming-button">
+          <i class="fas fa-link"></i>
+          <span>Stream & Share</span>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- In The Morning -->
+      <div class="song-title">In The Morning</div>
+      <div class="streaming-buttons">
+        <a href="in-the-morning.html" target="_blank" class="streaming-button">
+          <i class="fas fa-link"></i>
+          <span>Stream & Share</span>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- On Time -->
+      <div class="song-title">On Time</div>
+      <div class="streaming-buttons">
+        <a href="on-time.html" target="_blank" class="streaming-button">
+          <i class="fas fa-link"></i>
+          <span>Stream & Share</span>
+        </a>
+      </div>
+    </div>
+
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+  </body>
+</html> 
