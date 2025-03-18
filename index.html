@@ -53,6 +53,16 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
     <style>
+      /* Custom cursor styles */
+      body {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M12 12 C12 12 13 8 18 8 C23 8 26 10 28 14 C30 18 30 22 28 25 C26 28 22 30 18 30 C14 30 12 28 10 25 C8 22 8 18 10 14 C12 10 12 12 12 12" fill="%23FFD700" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><path d="M10 16 L6 16 C4 16 3 17 3 18 L3 19 C3 20 4 20 6 20" fill="%23FFC0CB" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="%23000000"/></svg>') 20 20, auto;
+      }
+
+      /* Ensure clickable elements still show pointer cursor */
+      a, button, [role="button"] {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M12 12 C12 12 13 8 18 8 C23 8 26 10 28 14 C30 18 30 22 28 25 C26 28 22 30 18 30 C14 30 12 28 10 25 C8 22 8 18 10 14 C12 10 12 12 12 12" fill="%23FFD700" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><path d="M10 16 L6 16 C4 16 3 17 3 18 L3 19 C3 20 4 20 6 20" fill="%23FFC0CB" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="%23000000"/></svg>') 20 20, pointer;
+      }
+
       @media (max-width: 767px) {
         .video-carousel {
           width: 180% !important;
@@ -238,8 +248,24 @@
             </div>
           </div>
         </section>
-        <section class="module bg-dark-60" data-background="assets/images/DSC06448.jpg" style="padding: 60px 0 !important;">
-          <div style="width: 100%;">
+        <section class="module bg-dark-60" style="padding: 60px 0 !important; position: relative; overflow: hidden;">
+          <!-- Add a blurred background container -->
+          <div class="background-overlay" style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/DSC06448.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            transform: scale(1.1);
+            z-index: 1;
+          "></div>
+          
+          <!-- Content container with higher z-index -->
+          <div style="width: 100%; position: relative; z-index: 2;">
             <div class="row" style="margin: 0; padding: 0; width: 100%;">
               <div class="col-sm-12" style="padding: 0;">
                 <div class="owl-carousel video-carousel" style="width: 100%;">
