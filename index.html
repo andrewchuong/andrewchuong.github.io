@@ -58,6 +58,24 @@
         cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M12 12 C12 12 13 8 18 8 C23 8 26 10 28 14 C30 18 30 22 28 25 C26 28 22 30 18 30 C14 30 12 28 10 25 C8 22 8 18 10 14 C12 10 12 12 12 12" fill="%23FFD700" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><path d="M10 16 L6 16 C4 16 3 17 3 18 L3 19 C3 20 4 20 6 20" fill="%23FFC0CB" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="%23000000"/></svg>') 20 20, auto;
       }
 
+      /* Custom triangle arrows */
+      .carousel-nav-btn {
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .prev-video {
+        border-right: 15px solid #fff;
+      }
+
+      .next-video {
+        border-left: 15px solid #fff;
+      }
+
       /* Ensure clickable elements still show pointer cursor */
       a, button, [role="button"] {
         cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M12 12 C12 12 13 8 18 8 C23 8 26 10 28 14 C30 18 30 22 28 25 C26 28 22 30 18 30 C14 30 12 28 10 25 C8 22 8 18 10 14 C12 10 12 12 12 12" fill="%23FFD700" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><path d="M10 16 L6 16 C4 16 3 17 3 18 L3 19 C3 20 4 20 6 20" fill="%23FFC0CB" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="%23000000"/></svg>') 20 20, pointer;
@@ -68,24 +86,46 @@
           width: 180% !important;
           margin-left: -40% !important;
         }
-        /* Make music links always visible on mobile */
+        /* Hide music links overlay on mobile */
         .work-caption {
-          opacity: 1 !important;
-          transform: none !important;
-          bottom: 0 !important;
+          display: none !important;
+        }
+        .work-image {
+          position: relative;
+        }
+        .work-image a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          z-index: 2;
         }
         .work-image img {
-          transform: scale(1) !important;
+          transform: none !important;
+          width: 100%;
+          height: auto;
         }
-        /* Prevent all hover animations on mobile */
+        /* Remove hover effects and ensure links are clickable */
         .work-item:hover .work-image img {
-          transform: scale(1) !important;
+          transform: none !important;
         }
         .work-item:hover .work-caption {
-          transform: none !important;
+          display: none !important;
         }
         .work-title, .work-descr {
-          transform: none !important;
+          display: none !important;
+        }
+        /* Ensure work-item takes full width and is clickable */
+        .work-item {
+          position: relative;
+          width: 100%;
+        }
+        .work-item a {
+          cursor: pointer;
+        }
+        /* Hide all overlay elements */
+        .work-title-wrapper {
+          display: none !important;
         }
         /* Adjust size and spacing of buttons for better touch targets */
         .work-descr .btn {
@@ -293,12 +333,20 @@
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
                 <!-- <h2 class="module-title font-alt">Bio</h2> -->
-                <div class="module-subtitle font-serif">Growing up, Vici.PR got his start in hip hop as a Bboy or a breakdancer. Through breaking and participating in local events he established his own style and affinity for the culture. After events he would always freestyle with his crew outside. Eventually these became more frequent and he decided to take up music seriously.  Vici's sound is inspired by the 90s and early 2000s hip hop and R&B he grew up listening to.</div>
+                <div class="module-subtitle font-serif">Growing up, Vici.PR got his start in hip hop as a Bboy (breakdancer). Through breaking and participating in local events he established his own style and affinity for the culture. After events he would always freestyle with his crew outside. Eventually these became more frequent and he decided to take up music seriously.  Vici's sound is inspired by the 90s and early 2000s hip hop and R&B he grew up listening to.</div>
                 <iframe src="https://open.spotify.com/embed/playlist/54wozaRYvjXPZ4tgsVOYNh?theme=0" width="100%" height="600" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               </div>
             </div>
+          </div>
+        </section>
+        <section class="module bg-dark" style="padding: 0;">
+          <div class="container">
             <div class="row">
-              <!-- where the BRANDING DEVELOPMENT etc was -->
+              <div class="col-sm-6 col-sm-offset-3" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+                <a href="#" class="carousel-nav-btn prev-video"></a>
+                <h2 class="module-title font-alt" style="margin: 0;">Music Videos</h2>
+                <a href="#" class="carousel-nav-btn next-video"></a>
+              </div>
             </div>
           </div>
         </section>
@@ -325,22 +373,22 @@
                 <div class="owl-carousel video-carousel" style="width: 100%;">
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/0cV0NXmCyjo?si=Td6yKNuuq23SKVjg&modestbranding=1&showinfo=0&controls=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/0cV0NXmCyjo?si=Td6yKNuuq23SKVjg&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/1YLwYiOnO8Q?si=YwuMGgcwSPsqvTHX&modestbranding=1&showinfo=0&controls=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/1YLwYiOnO8Q?si=YwuMGgcwSPsqvTHX&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/o_Zo7COZHqQ?si=uWt-QKpaaoUqa5mb&modestbranding=1&showinfo=0&controls=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/o_Zo7COZHqQ?si=uWt-QKpaaoUqa5mb&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/RZxNWOKwpvw?si=KVIT9vrmJMBo59an" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/RZxNWOKwpvw?si=KVIT9vrmJMBo59an&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                   </div>
                 </div>
@@ -426,6 +474,22 @@
                   <a href="https://music.apple.com/us/album/please-dont-let-me-go/1544019931?i=1544019932" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
                   <a href="https://music.youtube.com/watch?v=1k2WquuTYf4&si=_zLjZhfSFH_NJZ17" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
                   <a href="https://music.amazon.com/albums/B08Q34XH7G?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_mc24TMrmn8s6giXeKRJIrNxP4&trackAsin=B08Q42PGLT" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="too-cocky.html">
+                  <img src="assets/images/discography/Too Cocky.jpg" alt="Too Cocky"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="too-cocky.html" style="color: #ffffff;">Too Cocky</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/0kOiL42B5eCqDNJT1qLXrH?si=2a09693016c344f0" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/too-cocky/1602660264?i=1602660265" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=j6q8iLe7rX8&si=U7tGupBENj8zvhnP" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B09PG86F31?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_MF5r0eSCfh39bE6J7FMVs4Qeb" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
                 </div>
               </div>
             </li>
@@ -525,6 +589,54 @@
                 </div>
               </div>
             </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="dtmc.html">
+                  <img src="assets/images/discography/DTMC.jpg" alt="DTMC" style="background-color: #000; display: block;"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="dtmc.html" style="color: #ffffff;">D.T.M.C.</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/3tTfijOtHB4Ur5oOUYyjOp?si=94e422e8a5d74cab" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/d-t-m-c-feat-meellion-single/1661753638" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=PAifvgfddMA&si=XaLeo7kcelO5vl03" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/tracks/B0BR7PKTD4?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_pjC9NIBm7Vg7cD2flPAYiqFHY" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="flying-with-you.html">
+                  <img src="assets/images/discography/Flying With You.jpg" alt="Flying With You" style="background-color: #000; display: block;"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="flying-with-you.html" style="color: #ffffff;">Flying With You</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/4RWNB53ZUnNMXFO6AEib02?si=ed3af40864614c3c" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/flying-with-you/1685796249?i=1685796252" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=XN4pG1zNecs&si=zdaF_l-Lm4sGvSBK" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/tracks/B0C42VQTYX?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_UWAn5JLy9pvXbZt8fK4al1yvm" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="ghostin.html">
+                  <img src="assets/images/discography/Ghosting.jpg" alt="Ghostin'" style="background-color: #000; display: block;"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="ghostin.html" style="color: #ffffff;">Ghostin'</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/3EoC3AgyVAG5e2KY43HeQb?si=69d64378dfac4e30" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/us/album/ghostin-single/1714425299" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=SRJH4FmbUyI&si=NEvLCgfJhpZXtL7v" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B0CM62CZD6?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_PLNpjCr2wztIAEJEp8jBracAA" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
           </ul>
         </section>
         <!-- where the black portfolio section was -->
@@ -577,6 +689,49 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
+      // Load YouTube API
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var players = [];
+      var videoCarousel;
+
+      // Initialize YouTube players when API is ready
+      function onYouTubeIframeAPIReady() {
+        // Initialize players for each video iframe
+        document.querySelectorAll('.youtube-video').forEach(function(iframe, index) {
+          players[index] = new YT.Player(iframe, {
+            events: {
+              'onStateChange': function(event) {
+                if (event.data === YT.PlayerState.PLAYING) {
+                  // Stop carousel autoplay when video starts playing
+                  videoCarousel.trigger('stop.owl.autoplay');
+                  
+                  // Pause other videos
+                  players.forEach(function(player, i) {
+                    if (i !== index && player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING) {
+                      player.pauseVideo();
+                    }
+                  });
+                } else if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
+                  // Check if any videos are still playing
+                  var anyPlaying = players.some(function(player) {
+                    return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
+                  });
+                  
+                  if (!anyPlaying) {
+                    // Resume carousel autoplay if no videos are playing
+                    videoCarousel.trigger('play.owl.autoplay');
+                  }
+                }
+              }
+            }
+          });
+        });
+      }
+
       $(document).ready(function(){
         // Handle navbar background on scroll
         $(window).scroll(function() {
@@ -587,32 +742,69 @@
           }
         });
 
-        $('.video-carousel').owlCarousel({
-          items: 1,
+        // Initialize video carousel
+        videoCarousel = $('.video-carousel').owlCarousel({
           loop: true,
-          margin: 120,
-          nav: true,
-          dots: true,
+          margin: 20,
+          nav: false,
+          dots: false,
           autoplay: true,
           autoplayTimeout: 5000,
           autoplayHoverPause: true,
-          navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+          mouseDrag: true,
+          touchDrag: true,
           responsive: {
             0: {
-              items: 1,
-              margin: 20,
-              nav: false,
-              dots: true
+              items: 1.2,
+              stagePadding: 30
             },
             768: {
-              items: 1,
-              margin: 60,
-              nav: true
+              items: 2.2,
+              stagePadding: 50
             },
             992: {
-              items: 1,
-              margin: 120
+              items: 2.5,
+              stagePadding: 100
             }
+          }
+        });
+
+        // Handle horizontal scrolling with mouse wheel
+        $('.owl-stage-outer').on('wheel', function(e) {
+          // Check if any video is playing before allowing scroll
+          var anyPlaying = players.some(function(player) {
+            return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
+          });
+          
+          if (!anyPlaying) {
+            e.preventDefault();
+            if (e.originalEvent.deltaY > 0) {
+              videoCarousel.trigger('next.owl.carousel', [300]);
+            } else {
+              videoCarousel.trigger('prev.owl.carousel', [300]);
+            }
+          }
+        });
+
+        // Add click handlers for the title navigation buttons
+        $('.prev-video').click(function(e) {
+          e.preventDefault();
+          videoCarousel.trigger('prev.owl.carousel', [300]);
+        });
+
+        $('.next-video').click(function(e) {
+          e.preventDefault();
+          videoCarousel.trigger('next.owl.carousel', [300]);
+        });
+
+        // Stop autoplay when carousel is manually navigated
+        videoCarousel.on('changed.owl.carousel', function() {
+          var anyPlaying = players.some(function(player) {
+            return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
+          });
+          
+          if (anyPlaying) {
+            videoCarousel.trigger('stop.owl.autoplay');
           }
         });
       });
