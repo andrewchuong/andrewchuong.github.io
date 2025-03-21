@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Donations - VICI.PR</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/Website Favicon.png">
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+      
+      .donations-container {
+        max-width: 800px;
+        margin: 80px auto 50px;
+        padding: 30px;
+        text-align: center;
+      }
+      
+      .page-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      
+      .donation-description {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+      }
+      
+      .donation-options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 50px;
+      }
+      
+      .donation-option {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid #FFD700;
+        border-radius: 8px;
+        padding: 25px;
+        width: 220px;
+        transition: all 0.3s ease;
+      }
+      
+      .donation-option:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      }
+      
+      .donation-amount {
+        font-size: 32px;
+        font-weight: bold;
+        color: #FFD700;
+        margin-bottom: 15px;
+      }
+      
+      .donation-btn {
+        display: inline-block;
+        background-color: #FFD700;
+        color: #000;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+      
+      .donation-btn:hover {
+        background-color: #fff;
+        color: #000;
+        text-decoration: none;
+      }
+      
+      .back-link {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        z-index: 1000;
+      }
+      
+      .back-link:hover {
+        color: #FFD700;
+        text-decoration: none;
+      }
+      
+      .custom-form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .form-control {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid #333;
+        color: #fff;
+        margin-bottom: 15px;
+        padding: 12px;
+      }
+      
+      .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: #FFD700;
+        color: #fff;
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
+    
+    <div class="donations-container">
+      <h1 class="page-title">Support VICI.PR</h1>
+      
+      <p class="donation-description">
+        Your support helps fund new music, videos, and live performances. Every contribution, no matter the size, makes a difference and is deeply appreciated.
+      </p>
+      
+      <div class="donation-options">
+        <div class="donation-option">
+          <div class="donation-amount">$5</div>
+          <p>Help support new music</p>
+          <a href="#" class="donation-btn">Donate</a>
+        </div>
+        
+        <div class="donation-option">
+          <div class="donation-amount">$10</div>
+          <p>Support studio time</p>
+          <a href="#" class="donation-btn">Donate</a>
+        </div>
+        
+        <div class="donation-option">
+          <div class="donation-amount">$25</div>
+          <p>Help fund music videos</p>
+          <a href="#" class="donation-btn">Donate</a>
+        </div>
+      </div>
+      
+      <h3 style="margin-top: 50px; margin-bottom: 30px;">Custom Amount</h3>
+      
+      <div class="custom-form">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" placeholder="Amount ($)">
+          </div>
+          <button type="submit" class="donation-btn" style="margin-top: 10px;">Donate Now</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- JavaScripts -->
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html> 

@@ -58,6 +58,58 @@
         cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M12 12 C12 12 13 8 18 8 C23 8 26 10 28 14 C30 18 30 22 28 25 C26 28 22 30 18 30 C14 30 12 28 10 25 C8 22 8 18 10 14 C12 10 12 12 12 12" fill="%23FFD700" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><path d="M10 16 L6 16 C4 16 3 17 3 18 L3 19 C3 20 4 20 6 20" fill="%23FFC0CB" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="%23000000"/></svg>') 20 20, auto;
       }
 
+      /* Dropdown styles */
+      .navbar-header .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .navbar-brand {
+        cursor: pointer;
+        position: relative;
+      }
+      
+      .navbar-brand:after {
+        content: '';
+        font-size: 10px;
+        vertical-align: middle;
+        margin-left: 3px;
+      }
+      
+      .dropdown-menu {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.95);
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+        z-index: 9999;
+        top: 50px;
+        left: 0;
+        padding: 10px 0;
+        border-radius: 4px;
+        border: 1px solid #FFD700;
+        list-style-type: none;
+        margin: 0;
+        display: none;
+      }
+      
+      .dropdown-menu.show {
+        display: block;
+      }
+      
+      .dropdown-item {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        white-space: nowrap;
+        font-size: 16px;
+      }
+      
+      .dropdown-item:hover {
+        background-color: #333;
+        color: #FFD700;
+      }
+
       /* Custom triangle arrows */
       .carousel-nav-btn {
         width: 0;
@@ -76,6 +128,52 @@
         border-left: 15px solid #fff;
       }
 
+      /* Video carousel styling to match live-performances.html */
+      .video-carousel .item {
+        padding: 5px;
+      }
+      
+      .video-box {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      }
+      
+      .video-box:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5) !important;
+      }
+      
+      .youtube-video {
+        border-radius: 8px !important;
+      }
+      
+      /* Video caption styling */
+      .video-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        z-index: 5;
+      }
+      
+      .video-box:hover .video-caption {
+        transform: translateY(0);
+      }
+      
+      .video-title {
+        margin: 0;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
       /* Ensure clickable elements still show pointer cursor */
       a, button, [role="button"] {
         cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M12 12 C12 12 13 8 18 8 C23 8 26 10 28 14 C30 18 30 22 28 25 C26 28 22 30 18 30 C14 30 12 28 10 25 C8 22 8 18 10 14 C12 10 12 12 12 12" fill="%23FFD700" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><path d="M10 16 L6 16 C4 16 3 17 3 18 L3 19 C3 20 4 20 6 20" fill="%23FFC0CB" stroke="%23000000" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="%23000000"/></svg>') 20 20, pointer;
@@ -83,9 +181,66 @@
 
       @media (max-width: 767px) {
         .video-carousel {
-          width: 180% !important;
-          margin-left: -40% !important;
+          width: 270% !important; /* Increased from 180% to 270% (50% bigger) */
+          margin-left: -85% !important; /* Adjusted from -40% to -85% to center properly */
         }
+        
+        /* Ensure video items take up more space */
+        .owl-carousel .owl-item {
+          padding: 0;
+        }
+        
+        /* Ensure video boxes maintain aspect ratio */
+        .video-box {
+          padding-bottom: 56.25% !important;
+          margin-bottom: 15px;
+        }
+        
+        /* Make caption always visible on mobile for better UX */
+        .video-caption {
+          transform: translateY(0) !important;
+          background: rgba(0, 0, 0, 0.7) !important;
+          padding: 8px !important;
+        }
+        
+        .video-title {
+          font-size: 12px !important;
+        }
+        
+        /* Adjust carousel pagination for better visibility with larger videos */
+        .owl-dots {
+          margin-top: 15px;
+        }
+        
+        /* Video immersive view improvements for mobile */
+        .video-overlay .video-container {
+          width: 100% !important;
+          max-width: none;
+        }
+        
+        .video-container .close-btn {
+          top: -40px;
+          right: 10px;
+          font-size: 28px;
+          background-color: rgba(0,0,0,0.5);
+          border-radius: 50%;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        /* Make social media icons closer together on mobile */
+        .navbar-nav > li {
+          margin: 0 8px !important;
+        }
+        
+        .navbar-nav > li > a i {
+          font-size: 22px;
+          width: 22px;
+        }
+        
         /* Hide music links overlay on mobile */
         .work-caption {
           display: none !important;
@@ -283,6 +438,132 @@
         height: auto;
         display: block;
       }
+      
+      /* Immersive video player styles */
+      .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.6s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 0.6s;
+        will-change: opacity, background-color;
+        perspective: 1000px;
+      }
+      
+      .video-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0.9);
+        transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.6s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear;
+      }
+      
+      .video-container {
+        position: relative;
+        width: 90%;
+        max-width: 1000px;
+        transform: scale(0.85) translateY(30px);
+        opacity: 0;
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        will-change: transform, opacity;
+      }
+      
+      .video-overlay.active .video-container {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+      
+      .video-container .close-btn {
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 10001;
+        opacity: 0;
+        transform: rotate(-90deg) translateY(20px);
+        transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.1s, 
+                    transform 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.1s,
+                    color 0.3s ease;
+      }
+      
+      .video-overlay.active .close-btn {
+        opacity: 1;
+        transform: rotate(0) translateY(0);
+      }
+      
+      .video-container .close-btn:hover {
+        color: #FFD700;
+        transform: scale(1.2) rotate(0);
+      }
+      
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.7);
+        transition: box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        border-radius: 4px;
+        transform: translateZ(0);
+      }
+      
+      .video-overlay.active .video-wrapper {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+      }
+      
+      .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 4px;
+        transition: transform 0.3s ease, box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        will-change: transform;
+        transform: translateZ(0);
+      }
+      
+      .video-overlay.active .video-wrapper iframe {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      }
+      
+      @media (max-width: 767px) {
+        .video-container {
+          width: 95%;
+        }
+        
+        .video-container .close-btn {
+          top: -30px;
+          right: 0;
+        }
+      }
+
+      /* YouTube title and info blocker */
+      .youtube-video-container {
+        position: relative;
+      }
+      
+      .youtube-title-blocker {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px; /* Height that covers YouTube title bar */
+        background-color: #000;
     </style>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60" class="bg-dark">
@@ -293,7 +574,24 @@
       <nav class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">VICI.PR</a>
+            <div style="position: relative; display: inline-block;">
+              <a class="navbar-brand" href="#" onclick="document.getElementById('dropdownMenu').style.display = document.getElementById('dropdownMenu').style.display === 'block' ? 'none' : 'block'; event.stopPropagation(); return false;">VICI.PR <span style="font-size: 12px;">▼</span></a>
+              <div id="dropdownMenu" style="display: none; position: absolute; top: 50px; left: 0; background-color: #000; border: 1px solid gold; z-index: 99999; width: 180px; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+                <a href="#discography" style="color: white; display: block; padding: 12px 15px; text-decoration: none; border-bottom: 1px solid #333;" 
+                   onclick="document.getElementById('dropdownMenu').style.display='none'; 
+                            var target = document.getElementById('discography');
+                            if(target) {
+                              window.scrollTo({
+                                top: target.offsetTop - 70, 
+                                behavior: 'smooth'
+                              });
+                            }
+                            return false;">Music</a>
+                <a href="live-performances.html" style="color: white; display: block; padding: 12px 15px; text-decoration: none; border-bottom: 1px solid #333;">Live Performances</a>
+                <a href="donations.html" style="color: white; display: block; padding: 12px 15px; text-decoration: none; border-bottom: 1px solid #333;">Donations</a>
+                <a href="subscriber-list.html" style="color: white; display: block; padding: 12px 15px; text-decoration: none;">Subscriber List</a>
+              </div>
+            </div>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -307,7 +605,18 @@
           </div>
         </div>
       </nav>
-      <video width="100%" controls autoplay muted loop style="pointer-events: none;">
+
+      <script>
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('dropdownMenu');
+        if (dropdown && event.target.className !== 'navbar-brand') {
+          dropdown.style.display = 'none';
+        }
+      });
+      </script>
+
+      <video width="100%" controls autoplay muted loop playsinline style="pointer-events: none;">
         <source src="assets/images/Website Loop 2015.mp4" type="video/mp4">
       </video>
       <!-- <section class="home-section home-full-height bg-dark-30" id="home" data-background="assets/images/section-5.jpg" style="height: 1319px; background-image: url(&quot;assets/images/section-5.jpg&quot;);"><div class="mbYTP_wrapper" id="wrapper_mbYTP_YTP_1629962701338" style="position: absolute; z-index: 0; min-width: 100%; min-height: 100%; left: 0px; top: 0px; overflow: hidden; opacity: 1; transition-property: opacity; transition-duration: 2000ms;"><iframe class="mbYTP_playerBox" id="mbYTP_YTP_1629962701338" style="position: absolute; z-index: 0; width: 2487px; height: 1399px; top: 0px; left: 0px; overflow: hidden; opacity: 1; user-select: none; margin-top: 0px; margin-left: -1105.83px; max-width: initial; transition-property: opacity; transition-duration: 1000ms;" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="360" src="https://www.youtube.com/embed/LdC05dFlcig?modestbranding=1&amp;autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;version=3&amp;playerapiid=mbYTP_YTP_1629962701338&amp;origin=https%3A%2F%2Fmarkup.themewagon.com&amp;allowfullscreen=true&amp;wmode=transparent&amp;iv_load_policy=3&amp;html5=1&amp;widgetid=1" unselectable="on"></iframe><div class="mbYTP_overlay" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"></div></div><div class="video-player mb_YTPlayer" data-property="{videoURL:'https://www.youtube.com/watch?v=LdC05dFlcig', containment:'.home-section', startAt:18, mute:false, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:25}" id="YTP_1629962701338" style="display: none; position: relative;"></div><div class="video-controls-box"><div class="container"><div class="video-controls"><a class="fa fa-volume-up" id="video-volume" href="#">&nbsp;</a><a class="fa fa-pause" id="video-play" href="#">&nbsp;</a></div></div></div><div class="titan-caption"><div class="caption-content"><div class="font-alt mb-30 titan-title-size-1">We ain't playin, we cookin'</div><div class="font-alt mb-40 titan-title-size-4">VICI.PR</div></div></div></section> -->
@@ -344,7 +653,7 @@
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
                 <a href="#" class="carousel-nav-btn prev-video"></a>
-                <h2 class="module-title font-alt" style="margin: 0;">Music Videos</h2>
+                <h2 class="module-title font-alt" id="music-videos" style="margin: 0;">Music Videos</h2>
                 <a href="#" class="carousel-nav-btn next-video"></a>
               </div>
             </div>
@@ -373,22 +682,58 @@
                 <div class="owl-carousel video-carousel" style="width: 100%;">
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/0cV0NXmCyjo?si=Td6yKNuuq23SKVjg&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/0cV0NXmCyjo?si=Td6yKNuuq23SKVjg&modestbranding=1&showinfo=0&controls=0&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <div class="video-caption">
+                        <h3 class="video-title">Too Cocky (Official Music Video)</h3>
+                      </div>
                     </div>
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/1YLwYiOnO8Q?si=YwuMGgcwSPsqvTHX&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/1YLwYiOnO8Q?si=YwuMGgcwSPsqvTHX&modestbranding=1&showinfo=0&controls=0&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <div class="video-caption">
+                        <h3 class="video-title">Switch It Up On Me (Official Video)</h3>
+                      </div>
                     </div>
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/o_Zo7COZHqQ?si=uWt-QKpaaoUqa5mb&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/o_Zo7COZHqQ?si=uWt-QKpaaoUqa5mb&modestbranding=1&showinfo=0&controls=0&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <div class="video-caption">
+                        <h3 class="video-title">Simp Boyz (Official Video)</h3>
+                      </div>
                     </div>
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/RZxNWOKwpvw?si=KVIT9vrmJMBo59an&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/RZxNWOKwpvw?si=KVIT9vrmJMBo59an&modestbranding=1&showinfo=0&controls=0&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <div class="video-caption">
+                        <h3 class="video-title">Bay (Official Video)</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/7eQ-efRm6TA?si=-ttDp3yU81cja-k7&modestbranding=1&showinfo=0&controls=0&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <div class="video-caption">
+                        <h3 class="video-title">Ghostin (Official Video)</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/L1721GiCZR8?si=jIdh51BMuE-ZN5jC&modestbranding=1&showinfo=0&controls=0&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <div class="video-caption">
+                        <h3 class="video-title">DTMC (Official Video)</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
+                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/dRiNo2KVlJs?si=yUEl8RjLjMvNp0i6&modestbranding=1&showinfo=0&controls=0&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <div class="video-caption">
+                        <h3 class="video-title">Ain't Worried (Official Video)</h3>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -396,7 +741,7 @@
             </div>
           </div>
         </section>
-        <section class="module pb-0 bg-dark" id="works">
+        <section class="module pb-0 bg-dark" id="discography">
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
@@ -637,6 +982,54 @@
                 </div>
               </div>
             </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="switch-it-up-on-me.html">
+                  <img src="assets/images/discography/Switch It Up On Me.jpg" alt="Switch It Up On Me" style="background-color: #000; display: block;"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="switch-it-up-on-me.html" style="color: #ffffff;">Switch It Up On Me</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/18MFYLenew6HOcFYxjIGIi?si=fd5cf660822841e1" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/id/album/switch-it-up-on-me/1485962547?i=1485962548" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=v0XBoV8tXC4&si=vwMARfHLKeaQ7CMA" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B07ZWXCK45?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Bt8MjW6OoxZqiWFYnTLo9Dy1V&trackAsin=B07ZWXBMWD" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="now-you-know.html">
+                  <img src="assets/images/discography/Now You Know.jpg" alt="Now You Know" style="background-color: #000; display: block;"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="now-you-know.html" style="color: #ffffff;">Now You Know</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/1I7MZn9A5pXQEhuIEDQOnF?si=bee4c475fce744f3" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/id/album/now-you-know-feat-7g-jonez-single/1482855377" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=vqHA0iN20g8&si=sFTebzfhZIn9IVEQ" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B07YWPB19S?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_UJllf2RmX1eKpyY28BIqDNZu5&trackAsin=B07YWTM3TS" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="work-item illustration webdesign">
+              <div class="work-image">
+                <a href="bay.html">
+                  <img src="assets/images/discography/Bay.jpg" alt="Bay" style="background-color: #000; display: block;"/>
+                </a>
+              </div>
+              <div class="work-caption font-alt">
+                <h3 class="work-title"><a href="bay.html" style="color: #ffffff;">Bay</a></h3>
+                <div class="work-descr">
+                  <a href="https://open.spotify.com/track/2Kpa5ila3cDv0nMo2BNT1l?si=63da3206697d4311" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-spotify"></i></a>
+                  <a href="https://music.apple.com/id/album/bay-feat-meel-single/1481129553" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-apple"></i></a>
+                  <a href="https://music.youtube.com/watch?v=GlKcifJROqQ&si=hf6ZBxLFuwMFy1QY" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-youtube"></i></a>
+                  <a href="https://music.amazon.com/albums/B07Y8WK336?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_66s3wDSJKjL95fXQPYnlCnhi7&trackAsin=B07Y8WC1BL" target="_blank" class="btn btn-d btn-circle"><i class="fab fa-amazon"></i></a>
+                </div>
+              </div>
+            </li>
           </ul>
         </section>
         <!-- where the black portfolio section was -->
@@ -697,6 +1090,9 @@
 
       var players = [];
       var videoCarousel;
+      var activePlayer = null;
+      var originalPlayerParent = null;
+      var isImmersiveMode = false;
 
       // Initialize YouTube players when API is ready
       function onYouTubeIframeAPIReady() {
@@ -709,14 +1105,34 @@
                   // Stop carousel autoplay when video starts playing
                   videoCarousel.trigger('stop.owl.autoplay');
                   
+                  // Enable immersive mode when video starts playing
+                  if (!isImmersiveMode) {
+                    activateImmersiveMode(event.target);
+                  }
+                  
                   // Pause other videos
                   players.forEach(function(player, i) {
                     if (i !== index && player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING) {
                       player.pauseVideo();
                     }
                   });
-                } else if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
+                } else if (event.data === YT.PlayerState.ENDED) {
+                  // Exit immersive mode when video ends
+                  if (isImmersiveMode) {
+                    deactivateImmersiveMode();
+                  }
+                  
                   // Check if any videos are still playing
+                  var anyPlaying = players.some(function(player) {
+                    return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
+                  });
+                  
+                  if (!anyPlaying) {
+                    // Resume carousel autoplay if no videos are playing
+                    videoCarousel.trigger('play.owl.autoplay');
+                  }
+                } else if (event.data === YT.PlayerState.PAUSED) {
+                  // Don't exit immersive mode on pause, only check for autoplay resumption
                   var anyPlaying = players.some(function(player) {
                     return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
                   });
@@ -731,8 +1147,96 @@
           });
         });
       }
+      
+      // Function to activate immersive mode
+      function activateImmersiveMode(player) {
+        activePlayer = player;
+        var overlay = document.getElementById('videoOverlay');
+        var videoWrapper = document.getElementById('immersiveVideoWrapper');
+        
+        // Get the iframe element and its original position
+        var iframe = player.getIframe();
+        originalPlayerParent = iframe.parentNode;
+        var originalRect = iframe.getBoundingClientRect();
+        
+        // First pause the video briefly while we move it
+        var currentTime = player.getCurrentTime();
+        player.pauseVideo();
+        
+        // Add initial inline styles to iframe for smooth transition
+        iframe.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+        
+        // Clone position data before moving the iframe
+        var iframeStyle = window.getComputedStyle(iframe);
+        var originalWidth = iframeStyle.width;
+        var originalHeight = iframeStyle.height;
+        
+        // Add the iframe to the immersive wrapper while preserving apparent position
+        videoWrapper.appendChild(iframe);
+        
+        // Force layout calculation before starting animation
+        void overlay.offsetWidth;
+        
+        // Display the overlay
+        overlay.classList.add('active');
+        
+        // Continue playing from where we left off after transition completes
+        setTimeout(function() {
+          player.seekTo(currentTime);
+          player.playVideo();
+        }, 600); // Match this timing with CSS transition duration
+        
+        isImmersiveMode = true;
+        
+        // Add escape key listener
+        document.addEventListener('keydown', handleEscapeKey);
+        
+        // Prevent scrolling of background content while in immersive mode
+        document.body.style.overflow = 'hidden';
+      }
+      
+      // Function to deactivate immersive mode
+      function deactivateImmersiveMode() {
+        if (!activePlayer) return;
+        
+        var overlay = document.getElementById('videoOverlay');
+        var iframe = activePlayer.getIframe();
+        
+        // Pause the video before transitioning back
+        activePlayer.pauseVideo();
+        
+        // Start the overlay transition
+        overlay.classList.remove('active');
+        
+        // Move the iframe back to its original location after the overlay transition
+        setTimeout(function() {
+          if (originalPlayerParent) {
+            // Reset any transition styles before moving back to original container
+            iframe.style.transition = '';
+            originalPlayerParent.appendChild(iframe);
+          }
+          
+          isImmersiveMode = false;
+          activePlayer = null;
+          
+          // Re-enable scrolling
+          document.body.style.overflow = '';
+        }, 500); // Slightly shorter than the overlay transition for smoother experience
+        
+        // Remove escape key listener
+        document.removeEventListener('keydown', handleEscapeKey);
+      }
+      
+      // Handle escape key press
+      function handleEscapeKey(e) {
+        if (e.key === 'Escape' && isImmersiveMode) {
+          deactivateImmersiveMode();
+        }
+      }
 
       $(document).ready(function(){
+        // Dropdown functionality with proper ID selectors has been removed
+
         // Handle navbar background on scroll
         $(window).scroll(function() {
           if ($(window).scrollTop() > 50) {
@@ -755,16 +1259,22 @@
           touchDrag: true,
           responsive: {
             0: {
-              items: 1.2,
-              stagePadding: 30
+              items: 1,
+              stagePadding: 40
             },
-            768: {
-              items: 2.2,
+            576: {
+              items: 1.1,
               stagePadding: 50
             },
+            768: {
+              items: 2,
+              stagePadding: 40,
+              margin: 25
+            },
             992: {
-              items: 2.5,
-              stagePadding: 100
+              items: 3,
+              stagePadding: 50,
+              margin: 25
             }
           }
         });
@@ -807,7 +1317,50 @@
             videoCarousel.trigger('stop.owl.autoplay');
           }
         });
+
+        // Smooth scroll for anchor links
+        $('.dropdown-item').on('click', function(e) {
+          e.preventDefault();
+          var targetId = $(this).attr('href');
+          var targetElement = $(targetId);
+          
+          if (targetElement.length) {
+            $('html, body').animate({
+              scrollTop: targetElement.offset().top - 70
+            }, 800);
+            
+            $('.dropdown-menu').removeClass('show');
+          }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+          var dropdown = document.getElementById('dropdownMenu');
+          if (dropdown && event.target.className !== 'navbar-brand') {
+            dropdown.style.display = 'none';
+          }
+        });
+
+        // Handle the close button click
+        $('#closeVideo').on('click', function() {
+          deactivateImmersiveMode();
+        });
+        
+        // Also handle clicks on the overlay background to close
+        $('#videoOverlay').on('click', function(event) {
+          if (event.target === this) {
+            deactivateImmersiveMode();
+          }
+        });
       });
     </script>
+    
+    <!-- Immersive Video Overlay -->
+    <div class="video-overlay" id="videoOverlay">
+      <div class="video-container">
+        <button class="close-btn" id="closeVideo"><i class="fa fa-times"></i></button>
+        <div class="video-wrapper" id="immersiveVideoWrapper"></div>
+      </div>
+    </div>
   </body>
 </html>
