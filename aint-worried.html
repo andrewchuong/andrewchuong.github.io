@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ain't Worried - VICI.PR</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QE1EZH4QV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6QE1EZH4QV');
+      
+      // Function to track button clicks
+      function trackClick(platform) {
+        gtag('event', 'click', {
+          'event_category': 'music_platform',
+          'event_label': platform,
+          'value': 1
+        });
+      }
+    </script>
+    <!-- End Google Analytics -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -78,30 +97,30 @@
     </style>
   </head>
   <body>
-    <a href="/" class="back-link"><i class="fa fa-arrow-left"></i> Back</a>
+    <a href="/" class="back-link" onclick="trackClick('back_to_home')"><i class="fa fa-arrow-left"></i> Back</a>
     <div class="song-container">
       <div class="song-image">
         <img src="assets/images/discography/Ain't Worried.jpg" alt="Ain't Worried">
       </div>
       <h1 class="song-title">Ain't Worried</h1>
       <div class="platform-links">
-        <a href="https://vicipr.com" class="platform-link" target="_blank">
+        <a href="index.html" class="platform-link" onclick="trackClick('main_page')">
           <i class="fa fa-home"></i>
           Main Page
         </a>
-        <a href="https://open.spotify.com/track/YOUR_SPOTIFY_ID" class="platform-link" target="_blank">
+        <a href="https://open.spotify.com/track/5n2UbzeUI7jxU59HbaGJcS?si=4438ec36c7e74c80" class="platform-link" onclick="trackClick('spotify')" target="_blank">
           <i class="fa fa-spotify"></i>
           Listen on Spotify
         </a>
-        <a href="https://music.apple.com/YOUR_APPLE_MUSIC_ID" class="platform-link" target="_blank">
+        <a href="https://music.apple.com/us/album/aint-worried/1565208053?i=1565208054" class="platform-link" onclick="trackClick('apple_music')" target="_blank">
           <i class="fa fa-apple"></i>
           Listen on Apple Music
         </a>
-        <a href="https://youtube.com/YOUR_YOUTUBE_ID" class="platform-link" target="_blank">
+        <a href="https://music.youtube.com/watch?v=dRiNo2KVlJs&si=TzBc9EUrDF49TeQ2" class="platform-link" onclick="trackClick('youtube_music')" target="_blank">
           <i class="fa fa-youtube-play"></i>
           Watch on YouTube
         </a>
-        <a href="https://amazon.com/YOUR_AMAZON_ID" class="platform-link" target="_blank">
+        <a href="https://music.amazon.com/tracks/B093R45LV4?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_0nsjKkwkFx1xBHifgxHl1ebFp" class="platform-link" onclick="trackClick('amazon_music')" target="_blank">
           <i class="fa fa-amazon"></i>
           Listen on Amazon Music
         </a>

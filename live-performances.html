@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VICI.PR - Live Performances</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QE1EZH4QV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6QE1EZH4QV');
+      
+      // Function to track interactions
+      function trackInteraction(category, label) {
+        gtag('event', 'click', {
+          'event_category': category,
+          'event_label': label,
+          'value': 1
+        });
+      }
+    </script>
+    <!-- End Google Analytics -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/Website Favicon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/Website Favicon.png">
@@ -164,7 +183,9 @@
       .upcoming-section {
         margin-top: 80px;
         padding: 40px 0;
-        background-color: rgba(255, 215, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.7);
+        border-top: 2px solid #FFD700;
+        border-bottom: 2px solid #FFD700;
       }
       
       .performance-list {
@@ -180,7 +201,7 @@
         align-items: center;
         padding: 20px;
         margin-bottom: 15px;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(40, 40, 40, 0.7);
         border-left: 3px solid #FFD700;
         border-radius: 0 4px 4px 0;
         transition: transform 0.3s ease, background-color 0.3s ease;
@@ -188,7 +209,7 @@
       
       .performance-list-item:hover {
         transform: translateX(10px);
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(60, 60, 60, 0.9);
       }
       
       .performance-info {
@@ -198,6 +219,13 @@
       .performance-venue {
         margin: 0 0 5px;
         font-weight: 600;
+        font-size: 18px;
+        color: #FFD700;
+      }
+      
+      .performance-date {
+        font-size: 16px;
+        color: #ffffff;
       }
       
       .performance-ticket-btn {
@@ -207,11 +235,12 @@
         padding: 8px 16px;
         border-radius: 4px;
         font-weight: 600;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, transform 0.2s ease;
       }
       
       .performance-ticket-btn:hover {
         background-color: #fff;
+        transform: scale(1.05);
       }
       
       @media (max-width: 991px) {
@@ -243,106 +272,70 @@
       </div>
       
       <!-- Back Button -->
-      <a href="index.html" class="back-to-home">
+      <a href="index.html" class="back-to-home" onclick="trackInteraction('navigation', 'back_to_home')">
         <i class="fa fa-arrow-left"></i> Back to Home
       </a>
       
       <div class="main">
         <div class="performance-container">
-          <h1 class="page-title font-alt">Live Performances</h1>
+          <h1 class="page-title font-alt" style="color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); font-size: 42px; letter-spacing: 2px;">Live Performances</h1>
           
           <!-- Past Performances Gallery -->
           <div class="performance-grid">
             <!-- Performance Item 1 -->
             <div class="performance-item">
-              <iframe class="performance-video" src="https://www.youtube.com/embed/VIDEO_ID_1?rel=0" title="Live at The Underground" allowfullscreen></iframe>
+              <iframe class="performance-video" src="https://www.youtube.com/embed/dH7ihLqUMnU?rel=0" title="Live Performance" allowfullscreen></iframe>
               <div class="performance-caption">
-                <h3 class="performance-title">Live at The Underground</h3>
-                <p class="performance-date">December 15, 2023</p>
+                <h3 class="performance-title">Joy on Joice 2021</h3>
+                <p class="performance-date">November 3, 2021 </p>
               </div>
             </div>
             
             <!-- Performance Item 2 -->
             <div class="performance-item">
-              <img src="assets/images/performances/performance-2.jpg" alt="Oakland Festival" class="performance-image">
+              <iframe class="performance-video" src="https://www.youtube.com/embed/Q95tWyUJVNc?rel=0" title="Live Performance" allowfullscreen></iframe>
               <div class="performance-caption">
-                <h3 class="performance-title">Oakland Music Festival</h3>
-                <p class="performance-date">October 8, 2023</p>
+                <h3 class="performance-title">Foodieland 2021</h3>
+                <p class="performance-date">November 24, 2021</p>
               </div>
             </div>
             
             <!-- Performance Item 3 -->
             <div class="performance-item">
-              <img src="assets/images/performances/performance-3.jpg" alt="Club Performance" class="performance-image">
+              <iframe class="performance-video" src="https://www.youtube.com/embed/PWqGsRrprNg?rel=0" title="Live Performance" allowfullscreen></iframe>
               <div class="performance-caption">
-                <h3 class="performance-title">Nightlife Club</h3>
-                <p class="performance-date">September 22, 2023</p>
+                <h3 class="performance-title">Foodieland 2021</h3>
+                <p class="performance-date">November 24, 2021</p>
               </div>
             </div>
             
             <!-- Performance Item 4 -->
             <div class="performance-item">
-              <img src="assets/images/performances/performance-4.jpg" alt="Summer Jam" class="performance-image">
+              <iframe class="performance-video" src="https://www.youtube.com/embed/StW-qeG1cH8?rel=0" title="Live Performance" allowfullscreen></iframe>
               <div class="performance-caption">
                 <h3 class="performance-title">Summer Jam 2023</h3>
                 <p class="performance-date">July 30, 2023</p>
-              </div>
-            </div>
-            
-            <!-- Performance Item 5 -->
-            <div class="performance-item">
-              <iframe class="performance-video" src="https://www.youtube.com/embed/VIDEO_ID_2?rel=0" title="Bay Area Showcase" allowfullscreen></iframe>
-              <div class="performance-caption">
-                <h3 class="performance-title">Bay Area Hip Hop Showcase</h3>
-                <p class="performance-date">June 18, 2023</p>
-              </div>
-            </div>
-            
-            <!-- Performance Item 6 -->
-            <div class="performance-item">
-              <img src="assets/images/performances/performance-6.jpg" alt="College Show" class="performance-image">
-              <div class="performance-caption">
-                <h3 class="performance-title">UC Berkeley Spring Concert</h3>
-                <p class="performance-date">April 22, 2023</p>
               </div>
             </div>
           </div>
           
           <!-- Upcoming Performances -->
           <section class="upcoming-section">
-            <h2 class="page-title font-alt">Upcoming Shows</h2>
-            <ul class="performance-list">
-              <li class="performance-list-item">
-                <div class="performance-info">
-                  <h3 class="performance-venue">The New Parish - Oakland, CA</h3>
-                  <p class="performance-date">August 15, 2024 | 8:00 PM</p>
-                </div>
-                <a href="#" class="performance-ticket-btn">Get Tickets</a>
-              </li>
-              
-              <li class="performance-list-item">
-                <div class="performance-info">
-                  <h3 class="performance-venue">The Independent - San Francisco, CA</h3>
-                  <p class="performance-date">September 23, 2024 | 9:00 PM</p>
-                </div>
-                <a href="#" class="performance-ticket-btn">Get Tickets</a>
-              </li>
-              
-              <li class="performance-list-item">
-                <div class="performance-info">
-                  <h3 class="performance-venue">The Fillmore - San Francisco, CA</h3>
-                  <p class="performance-date">October 12, 2024 | 8:30 PM</p>
-                </div>
-                <a href="#" class="performance-ticket-btn">Coming Soon</a>
-              </li>
-            </ul>
+            <h2 class="page-title font-alt" style="color: #FFD700; font-size: 32px; margin-bottom: 30px;">UPCOMING SHOWS</h2>
+            
+            <!-- Comedy Event Flyer -->
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+              <a href="https://www.eventbrite.com/e/haha-at-the-birdhaus-tickets-871828474377" target="_blank" onclick="trackInteraction('tickets', 'birdhaus_comedy')">
+                <img src="assets/images/performances/birdhaus-flyer.jpg" alt="HAHA AT THE BIRDHAUS Comedy Event" style="max-width: 100%; border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); margin-bottom: 40px; border: 2px solid #FFD700;">
+              </a>
+            </div>
           </section>
           
           <!-- Contact for Bookings -->
           <div style="text-align: center; margin-top: 60px; padding: 40px; background-color: rgba(0, 0, 0, 0.5); border-radius: 4px;">
             <h2 class="font-alt" style="margin-bottom: 20px;">Book VICI.PR for Your Event</h2>
             <p style="margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Looking to book VICI.PR for a performance or appearance? Get in touch with our booking team for availability and rates.</p>
-            <a href="mailto:booking@vicipr.com" class="btn btn-border-w btn-round" style="padding: 10px 30px;">Contact for Booking</a>
+            <a href="mailto:booking@vicipr.com" class="btn btn-border-w btn-round" style="padding: 10px 30px;" onclick="trackInteraction('contact', 'booking_email')">Contact for Booking</a>
           </div>
         </div>
         
@@ -374,5 +367,47 @@
     <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      // Load YouTube API
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      
+      // Function to load YouTube video when clicked
+      function loadYoutubeVideo(container, videoId) {
+        // Create a video ID with timestamp to prevent caching issues
+        var videoContainerId = 'youtube-player-' + Date.now();
+        
+        // Create player container
+        var playerContainer = document.createElement('div');
+        playerContainer.id = videoContainerId;
+        playerContainer.style.position = 'absolute';
+        playerContainer.style.top = '0';
+        playerContainer.style.left = '0';
+        playerContainer.style.width = '100%';
+        playerContainer.style.height = '100%';
+        
+        // Clear container and add player div
+        container.innerHTML = '';
+        container.appendChild(playerContainer);
+        
+        // Create new YouTube player
+        new YT.Player(videoContainerId, {
+          videoId: videoId,
+          playerVars: {
+            autoplay: 1,
+            modestbranding: 1,
+            showinfo: 0,
+            rel: 0,
+            controls: 1,
+            enablejsapi: 1,
+            iv_load_policy: 3,
+            fs: 1,
+            mute: 0
+          }
+        });
+      }
+    </script>
   </body>
 </html> 

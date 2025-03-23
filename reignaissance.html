@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Reignaissance - VICI.PR</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QE1EZH4QV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6QE1EZH4QV');
+      
+      // Function to track button clicks
+      function trackClick(platform) {
+        gtag('event', 'click', {
+          'event_category': 'music_platform',
+          'event_label': platform,
+          'value': 1
+        });
+      }
+    </script>
+    <!-- End Google Analytics -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/Website Favicon.png">
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -121,7 +140,7 @@
     </style>
   </head>
   <body>
-    <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+    <a href="index.html" class="back-button" onclick="trackClick('back_to_home')"><i class="fas fa-arrow-left"></i> Back</a>
     
     <div class="container">
       <div class="album-artwork">
@@ -133,7 +152,7 @@
       <!-- Magic Trick -->
       <div class="song-title">Magic Trick</div>
       <div class="streaming-buttons">
-        <a href="magic-trick.html" target="_blank" class="streaming-button">
+        <a href="magic-trick.html" class="streaming-button" onclick="trackClick('magic_trick_page')">
           <i class="fas fa-link"></i>
           <span>Stream & Share</span>
         </a>
@@ -144,7 +163,7 @@
       <!-- In The Morning -->
       <div class="song-title">In The Morning</div>
       <div class="streaming-buttons">
-        <a href="in-the-morning.html" target="_blank" class="streaming-button">
+        <a href="in-the-morning.html" class="streaming-button" onclick="trackClick('in_the_morning_page')">
           <i class="fas fa-link"></i>
           <span>Stream & Share</span>
         </a>
@@ -155,7 +174,7 @@
       <!-- On Time -->
       <div class="song-title">On Time</div>
       <div class="streaming-buttons">
-        <a href="on-time.html" target="_blank" class="streaming-button">
+        <a href="on-time.html" class="streaming-button" onclick="trackClick('on_time_page')">
           <i class="fas fa-link"></i>
           <span>Stream & Share</span>
         </a>
