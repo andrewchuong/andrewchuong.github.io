@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chasing Dayz - VICI.PR</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QE1EZH4QV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6QE1EZH4QV');
+      
+      // Function to track button clicks
+      function trackClick(platform) {
+        gtag('event', 'click', {
+          'event_category': 'music_platform',
+          'event_label': platform,
+          'value': 1
+        });
+      }
+    </script>
+    <!-- End Google Analytics -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -78,30 +97,30 @@
     </style>
   </head>
   <body>
-    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
+    <a href="/" class="back-link" onclick="trackClick('back_to_home')"><i class="fas fa-arrow-left"></i> Back</a>
     <div class="song-container">
       <div class="song-image">
         <img src="assets/images/discography/Chasing Dayz.png" alt="Chasing Dayz">
       </div>
       <h1 class="song-title">Chasing Dayz</h1>
       <div class="platform-links">
-        <a href="https://vicipr.com" class="platform-link">
+        <a href="index.html" class="platform-link" onclick="trackClick('main_page')">
           <i class="fas fa-home"></i>
           Main Page
         </a>
-        <a href="https://open.spotify.com/track/0qdSHpXRlYwVfPWAnsT6Ut?si=f2c03043342a4f89" class="platform-link">
+        <a href="https://open.spotify.com/track/0qdSHpXRlYwVfPWAnsT6Ut?si=f2c03043342a4f89" class="platform-link" onclick="trackClick('spotify')" target="_blank">
           <i class="fab fa-spotify"></i>
           Listen on Spotify
         </a>
-        <a href="https://music.apple.com/us/album/chasing-dayz-feat-manchureon/1585817718?i=1585817719" class="platform-link">
+        <a href="https://music.apple.com/us/album/chasing-dayz-feat-manchureon/1585817718?i=1585817719" class="platform-link" onclick="trackClick('apple_music')" target="_blank">
           <i class="fab fa-apple"></i>
           Listen on Apple Music
         </a>
-        <a href="https://music.youtube.com/watch?v=tbCAZ2umBjI&si=BZkQh-gLUtW8fK_8" class="platform-link">
+        <a href="https://music.youtube.com/watch?v=tbCAZ2umBjI&si=BZkQh-gLUtW8fK_8" class="platform-link" onclick="trackClick('youtube_music')" target="_blank">
           <i class="fab fa-youtube"></i>
           Watch on YouTube
         </a>
-        <a href="https://music.amazon.com/albums/B09G6Z1HJM?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_4l9f1ZD1P8DnZypokBIHg9UaH" class="platform-link">
+        <a href="https://music.amazon.com/albums/B09G6Z1HJM?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_4l9f1ZD1P8DnZypokBIHg9UaH" class="platform-link" onclick="trackClick('amazon_music')" target="_blank">
           <i class="fab fa-amazon"></i>
           Listen on Amazon Music
         </a>

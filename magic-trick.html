@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Magic Trick - VICI.PR</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QE1EZH4QV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6QE1EZH4QV');
+      
+      // Function to track button clicks
+      function trackClick(platform) {
+        gtag('event', 'click', {
+          'event_category': 'music_platform',
+          'event_label': platform,
+          'value': 1
+        });
+      }
+    </script>
+    <!-- End Google Analytics -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/Website Favicon.png">
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -109,7 +128,7 @@
     </style>
   </head>
   <body>
-    <a href="reignaissance.html" class="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+    <a href="reignaissance.html" class="back-button" onclick="trackClick('back_button')"><i class="fas fa-arrow-left"></i> Back</a>
     
     <div class="container">
       <div class="album-artwork">
@@ -118,22 +137,27 @@
       
       <h1 class="song-title">Magic Trick</h1>
 
-      <a href="https://open.spotify.com/track/2BNhOrWIb0rIkIRwa3TDCy?si=b3dfc86b4092402c" target="_blank" class="streaming-button">
+      <a href="index.html" target="_blank" class="streaming-button" onclick="trackClick('main_page')">
+        <i class="fas fa-home"></i>
+        <span>Main Page</span>
+      </a>
+
+      <a href="https://open.spotify.com/track/2BNhOrWIb0rIkIRwa3TDCy?si=b3dfc86b4092402c" target="_blank" class="streaming-button" onclick="trackClick('spotify')">
         <i class="fab fa-spotify"></i>
         <span>Listen on Spotify</span>
       </a>
 
-      <a href="https://music.apple.com/us/album/magic-trick/1797649976" target="_blank" class="streaming-button">
+      <a href="https://music.apple.com/us/album/magic-trick/1797649976" target="_blank" class="streaming-button" onclick="trackClick('apple_music')">
         <i class="fab fa-apple"></i>
         <span>Listen on Apple Music</span>
       </a>
 
-      <a href="https://music.youtube.com/watch?v=ohU_PbJ3niQ" target="_blank" class="streaming-button">
+      <a href="https://music.youtube.com/watch?v=ohU_PbJ3niQ" target="_blank" class="streaming-button" onclick="trackClick('youtube_music')">
         <i class="fab fa-youtube"></i>
         <span>Listen on YouTube Music</span>
       </a>
 
-      <a href="https://music.amazon.com/albums/B0DXJ2TL5K?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_PXxUH1R5ZaL6KdgM98W8ttutC&trackAsin=B0DXJ9NCHR" target="_blank" class="streaming-button">
+      <a href="https://music.amazon.com/albums/B0DXJ2TL5K?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_PXxUH1R5ZaL6KdgM98W8ttutC&trackAsin=B0DXJ9NCHR" target="_blank" class="streaming-button" onclick="trackClick('amazon_music')">
         <i class="fab fa-amazon"></i>
         <span>Listen on Amazon Music</span>
       </a>
