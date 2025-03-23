@@ -63,6 +63,31 @@
         box-shadow: none;
       }
       
+      /* Improved select dropdown styling */
+      select.form-control {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        cursor: pointer;
+        text-overflow: ellipsis;
+        white-space: normal;
+        height: auto;
+        appearance: menulist;
+        -webkit-appearance: menulist;
+        -moz-appearance: menulist;
+      }
+      
+      select.form-control option {
+        background-color: #222;
+        color: #fff;
+        padding: 12px;
+        white-space: normal;
+      }
+      
+      /* Styling for the dropdown placeholder */
+      select.form-control option:first-child {
+        color: #aaa;
+      }
+      
       .subscription-btn {
         display: inline-block;
         background-color: #FFD700;
@@ -126,15 +151,15 @@
       </p>
       
       <div class="subscription-form">
-        <form>
+        <form id="subscriberForm">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Full Name" required>
+            <input type="text" class="form-control" id="fullName" placeholder="Full Name" required>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email Address" required>
+            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
           </div>
           <div class="form-group">
-            <select class="form-control">
+            <select class="form-control" id="source">
               <option value="" disabled selected>How did you hear about VICI.PR?</option>
               <option value="social">Social Media</option>
               <option value="friend">Friend or Family</option>
@@ -149,6 +174,9 @@
           </div>
           <button type="submit" class="subscription-btn">Subscribe</button>
         </form>
+        <div id="thankYouMessage" style="display: none; margin-top: 20px; color: #FFD700;">
+          Thank you for subscribing! Your information has been saved.
+        </div>
       </div>
       
       <h3 style="margin-top: 50px; margin-bottom: 20px;">Subscriber Benefits</h3>
@@ -156,7 +184,6 @@
       <ul class="benefits-list">
         <li><i class="fas fa-check"></i> Be the first to know about new music releases</li>
         <li><i class="fas fa-check"></i> Early access to tickets for upcoming shows</li>
-        <li><i class="fas fa-check"></i> Exclusive behind-the-scenes content</li>
         <li><i class="fas fa-check"></i> Special subscriber-only discounts on merchandise</li>
         <li><i class="fas fa-check"></i> Opportunity to participate in meet & greets</li>
       </ul>
@@ -165,5 +192,54 @@
     <!-- JavaScripts -->
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+      document.getElementById('subscriberForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const source = document.getElementById('source').value || 'Not specified';
+        const newsletter = document.getElementById('newsletter').checked;
+        const date = new Date().toISOString().split('T')[0];
+        
+        // Display loading message
+        document.getElementById('thankYouMessage').textContent = 'Submitting your information...';
+        document.getElementById('thankYouMessage').style.display = 'block';
+        
+        // Send data to Google Sheet
+        fetch('https://script.google.com/macros/s/AKfycbyTfz49pzFezknYOodQhYUu8sTszsQ8UIr0-5zpYgcCZXOo5sSpyzh7JzDmDNJeomD_SQ/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fullName: fullName,
+            email: email,
+            source: source,
+            newsletter: newsletter ? 'Yes' : 'No',
+            date: date
+          })
+        })
+        .then(() => {
+          // Note: due to no-cors mode we can't actually check response status
+          // Show thank you message and reset form
+          document.getElementById('thankYouMessage').textContent = 'Thank you for subscribing! Your information has been saved.';
+          document.getElementById('subscriberForm').reset();
+          
+          // Optionally hide the thank you message after a few seconds
+          setTimeout(function() {
+            document.getElementById('thankYouMessage').style.display = 'none';
+          }, 5000);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('thankYouMessage').textContent = 'There was an error submitting your information. Please try again.';
+          document.getElementById('thankYouMessage').style.color = '#ff6b6b';
+        });
+      });
+    </script>
   </body>
 </html> 
