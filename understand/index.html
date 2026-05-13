@@ -5,6 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Understand - VICI.PR</title>
+    <!-- Meta Pixel: replace REPLACE_WITH_META_PIXEL_ID with your Pixel ID from Events Manager (script + noscript below). -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'REPLACE_WITH_META_PIXEL_ID');
+      fbq('track', 'PageView');
+      fbq('track', 'ViewContent', {
+        content_name: 'Understand',
+        content_type: 'product',
+        content_ids: ['understand-single']
+      });
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QE1EZH4QV"></script>
     <script>
@@ -21,6 +39,9 @@
           'event_label': platform,
           'value': 1
         });
+        if (typeof fbq === 'function') {
+          fbq('trackCustom', 'StreamingClick', { platform: platform });
+        }
       }
     </script>
     <!-- End Google Analytics -->
@@ -151,6 +172,9 @@
     </style>
   </head>
   <body>
+    <noscript><img height="1" width="1" style="display:none" alt=""
+      src="https://www.facebook.com/tr?id=REPLACE_WITH_META_PIXEL_ID&amp;ev=PageView&amp;noscript=1"
+    /></noscript>
     <a href="../" class="back-button" onclick="trackClick('back_button')"><i class="fas fa-arrow-left"></i> Back</a>
     
     <div class="container">
