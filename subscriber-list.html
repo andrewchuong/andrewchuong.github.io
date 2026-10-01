@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Subscriber List - VICI.PR</title>
+    <title>Sign Up - VICI.PR</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/Website Favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/Website Favicon.png">
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
@@ -17,113 +18,14 @@
         color: #fff;
         font-family: 'Roboto Condensed', sans-serif;
       }
-      
+
       .subscribe-container {
         max-width: 800px;
-        margin: 80px auto 50px;
-        padding: 30px;
+        margin: 120px auto 50px;
+        padding: 30px 20px;
         text-align: center;
       }
-      
-      .page-title {
-        font-size: 36px;
-        margin-bottom: 30px;
-        color: #fff;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-      
-      .subscription-description {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-bottom: 40px;
-      }
-      
-      .subscription-form {
-        max-width: 500px;
-        margin: 0 auto;
-        background-color: rgba(255, 255, 255, 0.05);
-        padding: 30px;
-        border-radius: 10px;
-        border: 1px solid #333;
-      }
-      
-      .form-control {
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid #333;
-        color: #fff;
-        margin-bottom: 15px;
-        padding: 12px;
-      }
-      
-      .form-control:focus {
-        background-color: rgba(255, 255, 255, 0.15);
-        border-color: #FFD700;
-        color: #fff;
-        box-shadow: none;
-      }
-      
-      /* Improved select dropdown styling */
-      select.form-control {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #fff;
-        cursor: pointer;
-        text-overflow: ellipsis;
-        white-space: normal;
-        height: auto;
-        appearance: menulist;
-        -webkit-appearance: menulist;
-        -moz-appearance: menulist;
-      }
-      
-      select.form-control option {
-        background-color: #222;
-        color: #fff;
-        padding: 12px;
-        white-space: normal;
-      }
-      
-      /* Styling for the dropdown placeholder */
-      select.form-control option:first-child {
-        color: #aaa;
-      }
-      
-      .subscription-btn {
-        display: inline-block;
-        background-color: #FFD700;
-        color: #000;
-        font-weight: bold;
-        padding: 12px 30px;
-        border-radius: 30px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        margin-top: 10px;
-        border: none;
-        cursor: pointer;
-      }
-      
-      .subscription-btn:hover {
-        background-color: #fff;
-        color: #000;
-        text-decoration: none;
-      }
-      
-      .benefits-list {
-        text-align: left;
-        max-width: 500px;
-        margin: 40px auto;
-      }
-      
-      .benefits-list li {
-        margin-bottom: 10px;
-        line-height: 1.5;
-      }
-      
-      .benefits-list i {
-        color: #FFD700;
-        margin-right: 10px;
-      }
-      
+
       .back-link {
         position: fixed;
         top: 20px;
@@ -133,7 +35,7 @@
         font-size: 18px;
         z-index: 1000;
       }
-      
+
       .back-link:hover {
         color: #FFD700;
         text-decoration: none;
@@ -142,104 +44,11 @@
   </head>
   <body>
     <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
-    
+
     <div class="subscribe-container">
-      <h1 class="page-title">Join the VICI.PR List</h1>
-      
-      <p class="subscription-description">
-        Subscribe to stay updated on new music releases, upcoming shows, exclusive content, and more!
-      </p>
-      
-      <div class="subscription-form">
-        <form id="subscriberForm">
-          <div class="form-group">
-            <input type="text" class="form-control" id="fullName" placeholder="Full Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
-          </div>
-          <div class="form-group">
-            <select class="form-control" id="source">
-              <option value="" disabled selected>How did you hear about VICI.PR?</option>
-              <option value="social">Social Media</option>
-              <option value="friend">Friend or Family</option>
-              <option value="streaming">Streaming Platform</option>
-              <option value="show">Live Performance</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-check text-left" style="margin-bottom: 20px;">
-            <input type="checkbox" class="form-check-input" id="newsletter" checked>
-            <label class="form-check-label" for="newsletter" style="color: #ccc;">I agree to receive emails about new music and updates</label>
-          </div>
-          <button type="submit" class="subscription-btn">Subscribe</button>
-        </form>
-        <div id="thankYouMessage" style="display: none; margin-top: 20px; color: #FFD700;">
-          Thank you for subscribing! Your information has been saved.
-        </div>
-      </div>
-      
-      <h3 style="margin-top: 50px; margin-bottom: 20px;">Subscriber Benefits</h3>
-      
-      <ul class="benefits-list">
-        <li><i class="fas fa-check"></i> Be the first to know about new music releases</li>
-        <li><i class="fas fa-check"></i> Early access to tickets for upcoming shows</li>
-        <li><i class="fas fa-check"></i> Special subscriber-only discounts on merchandise</li>
-        <li><i class="fas fa-check"></i> Opportunity to participate in meet & greets</li>
-      </ul>
+      <div data-vici-signup="signup-page" data-variant="home"></div>
     </div>
-    
-    <!-- JavaScripts -->
-    <script src="assets/lib/jquery/dist/jquery.js"></script>
-    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    
-    <script>
-      document.getElementById('subscriberForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const fullName = document.getElementById('fullName').value;
-        const email = document.getElementById('email').value;
-        const source = document.getElementById('source').value || 'Not specified';
-        const newsletter = document.getElementById('newsletter').checked;
-        const date = new Date().toISOString().split('T')[0];
-        
-        // Display loading message
-        document.getElementById('thankYouMessage').textContent = 'Submitting your information...';
-        document.getElementById('thankYouMessage').style.display = 'block';
-        
-        // Send data to Google Sheet
-        fetch('https://script.google.com/macros/s/AKfycbyTfz49pzFezknYOodQhYUu8sTszsQ8UIr0-5zpYgcCZXOo5sSpyzh7JzDmDNJeomD_SQ/exec', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            fullName: fullName,
-            email: email,
-            source: source,
-            newsletter: newsletter ? 'Yes' : 'No',
-            date: date
-          })
-        })
-        .then(() => {
-          // Note: due to no-cors mode we can't actually check response status
-          // Show thank you message and reset form
-          document.getElementById('thankYouMessage').textContent = 'Thank you for subscribing! Your information has been saved.';
-          document.getElementById('subscriberForm').reset();
-          
-          // Optionally hide the thank you message after a few seconds
-          setTimeout(function() {
-            document.getElementById('thankYouMessage').style.display = 'none';
-          }, 5000);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          document.getElementById('thankYouMessage').textContent = 'There was an error submitting your information. Please try again.';
-          document.getElementById('thankYouMessage').style.color = '#ff6b6b';
-        });
-      });
-    </script>
+
+    <script src="assets/js/signup.js"></script>
   </body>
-</html> 
+</html>
