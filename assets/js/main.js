@@ -4,9 +4,10 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
  * Preloader
  /* ---------------------------------------------- */
 (function(){
-    $(window).on('load', function() {
+    // Reveal as soon as the layout is ready; video, images and embeds keep loading behind it.
+    $(document).ready(function() {
         $('.loader').fadeOut();
-        $('.page-loader').delay(350).fadeOut('slow');
+        $('.page-loader').fadeOut('fast');
     });
 
     $(document).ready(function() {
@@ -270,11 +271,14 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
             worksgrid_mode = 'fitRows';
         }
 
-        worksgrid.imagesLoaded(function() {
-            worksgrid.isotope({
-                layoutMode: worksgrid_mode,
-                itemSelector: '.work-item'
-            });
+        worksgrid.isotope({
+            layoutMode: worksgrid_mode,
+            itemSelector: '.work-item'
+        });
+
+        // Lazy-loaded images settle the layout again as they arrive.
+        worksgrid.find('img').on('load', function() {
+            worksgrid.isotope('layout');
         });
 
         $('#filters a').click(function() {

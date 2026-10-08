@@ -150,6 +150,61 @@
       .youtube-video {
         border-radius: 8px !important;
       }
+
+      /* Video thumbnails: the YouTube player only loads once one is tapped */
+      .yt-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: 0;
+        background: #000;
+        overflow: hidden;
+      }
+
+      .yt-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .yt-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 64px;
+        height: 64px;
+        margin: -32px 0 0 -32px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid #fff;
+        transition: background 0.2s ease;
+      }
+
+      .yt-play:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -11px 0 0 -6px;
+        border-style: solid;
+        border-width: 11px 0 11px 18px;
+        border-color: transparent transparent transparent #fff;
+      }
+
+      .yt-thumb:hover .yt-play,
+      .yt-thumb:focus .yt-play {
+        background: rgba(0, 0, 0, 0.85);
+      }
+
+      /* Cover art has known dimensions so the grid holds its shape before images arrive */
+      .work-image img {
+        height: auto;
+        aspect-ratio: 1 / 1;
+      }
       
       /* Video caption styling */
       .video-caption {
@@ -619,8 +674,9 @@
       });
       </script>
 
-      <video width="100%" controls autoplay muted loop playsinline style="pointer-events: none;">
-        <source src="assets/images/Website Loop 2025.mp4" type="video/mp4">
+      <video width="100%" controls autoplay muted loop playsinline preload="metadata" poster="assets/images/website-loop-poster.webp" style="pointer-events: none; aspect-ratio: 16 / 9;">
+        <source src="assets/images/website-loop-960.mp4" type="video/mp4" media="(max-width: 767px)">
+        <source src="assets/images/website-loop.mp4" type="video/mp4">
       </video>
       <!-- <section class="home-section home-full-height bg-dark-30" id="home" data-background="assets/images/section-5.jpg" style="height: 1319px; background-image: url(&quot;assets/images/section-5.jpg&quot;);"><div class="mbYTP_wrapper" id="wrapper_mbYTP_YTP_1629962701338" style="position: absolute; z-index: 0; min-width: 100%; min-height: 100%; left: 0px; top: 0px; overflow: hidden; opacity: 1; transition-property: opacity; transition-duration: 2000ms;"><iframe class="mbYTP_playerBox" id="mbYTP_YTP_1629962701338" style="position: absolute; z-index: 0; width: 2487px; height: 1399px; top: 0px; left: 0px; overflow: hidden; opacity: 1; user-select: none; margin-top: 0px; margin-left: -1105.83px; max-width: initial; transition-property: opacity; transition-duration: 1000ms;" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="360" src="https://www.youtube.com/embed/LdC05dFlcig?modestbranding=1&amp;autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;version=3&amp;playerapiid=mbYTP_YTP_1629962701338&amp;origin=https%3A%2F%2Fmarkup.themewagon.com&amp;allowfullscreen=true&amp;wmode=transparent&amp;iv_load_policy=3&amp;html5=1&amp;widgetid=1" unselectable="on"></iframe><div class="mbYTP_overlay" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"></div></div><div class="video-player mb_YTPlayer" data-property="{videoURL:'https://www.youtube.com/watch?v=LdC05dFlcig', containment:'.home-section', startAt:18, mute:false, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:25}" id="YTP_1629962701338" style="display: none; position: relative;"></div><div class="video-controls-box"><div class="container"><div class="video-controls"><a class="fa fa-volume-up" id="video-volume" href="#">&nbsp;</a><a class="fa fa-pause" id="video-play" href="#">&nbsp;</a></div></div></div><div class="titan-caption"><div class="caption-content"><div class="font-alt mb-30 titan-title-size-1">We ain't playin, we cookin'</div><div class="font-alt mb-40 titan-title-size-4">VICI.PR</div></div></div></section> -->
       <!-- <section class="home-section home-full-height bg-dark-30" id="home" data-background="assets/images/section-5.jpg"> -->
@@ -655,7 +711,7 @@
               <div class="col-sm-6 col-sm-offset-3">
                 <!-- <h2 class="module-title font-alt">Bio</h2> -->
                 <div class="module-subtitle font-serif">Growing up, Vici.PR got his start in hip hop as a Bboy (breakdancer). Through breaking and participating in local events he established his own style and affinity for the culture. After events he would always freestyle with his crew outside. Eventually these became more frequent and he decided to take up music seriously.  Vici's sound is inspired by the 90s and early 2000s hip hop and R&B he grew up listening to.</div>
-                <iframe src="https://open.spotify.com/embed/playlist/54wozaRYvjXPZ4tgsVOYNh?theme=0" width="100%" height="600" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe loading="lazy" title="Vici.PR on Spotify" src="https://open.spotify.com/embed/playlist/54wozaRYvjXPZ4tgsVOYNh?theme=0" width="100%" height="600" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               </div>
             </div>
           </div>
@@ -679,7 +735,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/DSC06448.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/DSC06448-bg.webp');
             background-size: cover;
             background-position: center;
             filter: blur(8px);
@@ -694,7 +750,7 @@
                 <div class="owl-carousel video-carousel" style="width: 100%;">
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/0cV0NXmCyjo?si=Td6yKNuuq23SKVjg&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <button type="button" class="youtube-video yt-thumb" data-video-id="0cV0NXmCyjo" aria-label="Play Magic Trick (Official Music Video)"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/0cV0NXmCyjo/hqdefault.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></button>
                       <div class="video-caption">
                         <h3 class="video-title">Magic Trick (Official Music Video)</h3>
                       </div>
@@ -702,7 +758,7 @@
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/1YLwYiOnO8Q?si=YwuMGgcwSPsqvTHX&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <button type="button" class="youtube-video yt-thumb" data-video-id="1YLwYiOnO8Q" aria-label="Play Flying With You (Official Video)"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/1YLwYiOnO8Q/hqdefault.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></button>
                       <div class="video-caption">
                         <h3 class="video-title">Flying With You (Official Video)</h3>
                       </div>
@@ -710,7 +766,7 @@
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/o_Zo7COZHqQ?si=uWt-QKpaaoUqa5mb&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <button type="button" class="youtube-video yt-thumb" data-video-id="o_Zo7COZHqQ" aria-label="Play Chasing Dayz (Official Video)"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/o_Zo7COZHqQ/hqdefault.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></button>
                       <div class="video-caption">
                         <h3 class="video-title">Chasing Dayz (Official Video)</h3>
                       </div>
@@ -718,7 +774,7 @@
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/RZxNWOKwpvw?si=KVIT9vrmJMBo59an&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <button type="button" class="youtube-video yt-thumb" data-video-id="RZxNWOKwpvw" aria-label="Play Too Cocky (Official Video)"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/RZxNWOKwpvw/hqdefault.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></button>
                       <div class="video-caption">
                         <h3 class="video-title">Too Cocky (Official Video)</h3>
                       </div>
@@ -726,7 +782,7 @@
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/7eQ-efRm6TA?si=-ttDp3yU81cja-k7&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <button type="button" class="youtube-video yt-thumb" data-video-id="7eQ-efRm6TA" aria-label="Play D.T.M.C (Official Video)"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/7eQ-efRm6TA/hqdefault.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></button>
                       <div class="video-caption">
                         <h3 class="video-title">D.T.M.C (Official Video)</h3>
                       </div>
@@ -734,7 +790,7 @@
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/L1721GiCZR8?si=jIdh51BMuE-ZN5jC&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <button type="button" class="youtube-video yt-thumb" data-video-id="L1721GiCZR8" aria-label="Play Chylln (Official Video)"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/L1721GiCZR8/hqdefault.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></button>
                       <div class="video-caption">
                         <h3 class="video-title">Chylln (Official Video)</h3>
                       </div>
@@ -742,7 +798,7 @@
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/dRiNo2KVlJs?si=yUEl8RjLjMvNp0i6&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <button type="button" class="youtube-video yt-thumb" data-video-id="dRiNo2KVlJs" aria-label="Play Ain't Worried (Official Video)"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/dRiNo2KVlJs/hqdefault.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></button>
                       <div class="video-caption">
                         <h3 class="video-title">Ain't Worried (Official Video)</h3>
                       </div>
@@ -750,7 +806,7 @@
                   </div>
                   <div class="item">
                     <div class="video-box" style="width: 100%; position: relative; padding-bottom: 56.25%;">
-                      <iframe class="youtube-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/xzYg92ks5vU?si=example&modestbranding=1&showinfo=0&controls=1&rel=0&enablejsapi=1&iv_load_policy=3&fs=0&color=white&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <button type="button" class="youtube-video yt-thumb" data-video-id="xzYg92ks5vU" aria-label="Play On Time (Official Video)"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/xzYg92ks5vU/hqdefault.jpg" alt=""><span class="yt-play" aria-hidden="true"></span></button>
                       <div class="video-caption">
                         <h3 class="video-title">On Time (Official Video)</h3>
                       </div>
@@ -781,7 +837,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="understand/">
-                  <img src="assets/images/discography/Understand.png" alt="Understand"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/understand.webp" alt="Understand"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -797,7 +853,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="reignaissance.html">
-                  <img src="assets/images/discography/On Time.jpg" alt="Reignaissance"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/on-time.webp" alt="Reignaissance"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -813,7 +869,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="chasing-dayz.html" style="display: block;">
-                  <img src="assets/images/discography/Chasing Dayz.png" alt="Chasing Dayz"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/chasing-dayz.webp" alt="Chasing Dayz"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -829,7 +885,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="aint-worried.html">
-                  <img src="assets/images/discography/Ain't Worried.jpg" alt="Ain't Worried"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/aint-worried.webp" alt="Ain't Worried"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -845,7 +901,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="please-dont-let-me-go.html">
-                  <img src="assets/images/discography/Please Don't Let Me Go.png" alt="Please Don't Let Me Go"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/please-dont-let-me-go.webp" alt="Please Don't Let Me Go"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -861,7 +917,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="too-cocky.html">
-                  <img src="assets/images/discography/Too Cocky.jpg" alt="Too Cocky"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/too-cocky.webp" alt="Too Cocky"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -877,7 +933,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="please-dont-hurt-me.html">
-                  <img src="assets/images/discography/Please Don't Hurt Me.jpg" alt="Please Don't Hurt Me"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/please-dont-hurt-me.webp" alt="Please Don't Hurt Me"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -893,7 +949,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="looking-back.html">
-                  <img src="assets/images/discography/Looking Back.jpg" alt="Looking Back"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/looking-back.webp" alt="Looking Back"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -909,7 +965,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="seen-her-before.html">
-                  <img src="assets/images/discography/Seen Her Before.jpeg" alt="Seen Her Before"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/seen-her-before.webp" alt="Seen Her Before"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -925,7 +981,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="crazy.html">
-                  <img src="assets/images/discography/Crazy.jpg" alt="Crazy"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/crazy.webp" alt="Crazy"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -941,7 +997,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="drought.html">
-                  <img src="assets/images/discography/Drought.jpg" alt="Drought"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/drought.webp" alt="Drought"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -957,7 +1013,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="simp-boyz.html">
-                  <img src="assets/images/discography/Simp-Boyz.png" alt="Simp Boyz" style="background-color: #000; display: block;"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/simp-boyz.webp" alt="Simp Boyz" style="background-color: #000; display: block;"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -973,7 +1029,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="dtmc.html">
-                  <img src="assets/images/discography/DTMC.jpg" alt="DTMC" style="background-color: #000; display: block;"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/dtmc.webp" alt="DTMC" style="background-color: #000; display: block;"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -989,7 +1045,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="flying-with-you.html">
-                  <img src="assets/images/discography/Flying With You.jpg" alt="Flying With You" style="background-color: #000; display: block;"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/flying-with-you.webp" alt="Flying With You" style="background-color: #000; display: block;"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -1005,7 +1061,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="ghostin.html">
-                  <img src="assets/images/discography/Ghosting.jpg" alt="Ghostin'" style="background-color: #000; display: block;"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/ghosting.webp" alt="Ghostin'" style="background-color: #000; display: block;"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -1021,7 +1077,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="switch-it-up-on-me.html">
-                  <img src="assets/images/discography/Switch It Up On Me.jpg" alt="Switch It Up On Me" style="background-color: #000; display: block;"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/switch-it-up-on-me.webp" alt="Switch It Up On Me" style="background-color: #000; display: block;"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -1037,7 +1093,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="now-you-know.html">
-                  <img src="assets/images/discography/Now You Know.jpg" alt="Now You Know" style="background-color: #000; display: block;"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/now-you-know.webp" alt="Now You Know" style="background-color: #000; display: block;"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -1053,7 +1109,7 @@
             <li class="work-item illustration webdesign">
               <div class="work-image">
                 <a href="bay.html">
-                  <img src="assets/images/discography/Bay.jpg" alt="Bay" style="background-color: #000; display: block;"/>
+                  <img loading="lazy" decoding="async" width="640" height="640" src="assets/images/discography/web/bay.webp" alt="Bay" style="background-color: #000; display: block;"/>
                 </a>
               </div>
               <div class="work-caption font-alt">
@@ -1119,151 +1175,80 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/signup.js"></script>
     <script>
-      // Load YouTube API
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      var players = [];
       var videoCarousel;
       var activePlayer = null;
-      var originalPlayerParent = null;
       var isImmersiveMode = false;
+      var youTubeApi = null;
 
-      // Initialize YouTube players when API is ready
-      function onYouTubeIframeAPIReady() {
-        // Initialize players for each video iframe
-        document.querySelectorAll('.youtube-video').forEach(function(iframe, index) {
-          players[index] = new YT.Player(iframe, {
+      // The YouTube API is only fetched the first time a video is opened
+      function loadYouTubeApi() {
+        if (!youTubeApi) {
+          youTubeApi = new Promise(function(resolve) {
+            window.onYouTubeIframeAPIReady = function() { resolve(window.YT); };
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            document.head.appendChild(tag);
+          });
+        }
+        return youTubeApi;
+      }
+
+      // Open a video in the immersive overlay and start playing it
+      function activateImmersiveMode(videoId) {
+        if (isImmersiveMode) return;
+        isImmersiveMode = true;
+
+        var overlay = document.getElementById('videoOverlay');
+        var videoWrapper = document.getElementById('immersiveVideoWrapper');
+        var mount = document.createElement('div');
+        videoWrapper.appendChild(mount);
+
+        videoCarousel.trigger('stop.owl.autoplay');
+        overlay.classList.add('active');
+        document.addEventListener('keydown', handleEscapeKey);
+
+        // Prevent scrolling of background content while in immersive mode
+        document.body.style.overflow = 'hidden';
+
+        loadYouTubeApi().then(function(YT) {
+          // Closed again before the API arrived
+          if (!isImmersiveMode || !mount.parentNode) return;
+          activePlayer = new YT.Player(mount, {
+            videoId: videoId,
+            width: '100%',
+            height: '100%',
+            playerVars: { autoplay: 1, playsinline: 1, modestbranding: 1, rel: 0, iv_load_policy: 3, color: 'white' },
             events: {
               'onStateChange': function(event) {
-                if (event.data === YT.PlayerState.PLAYING) {
-                  // Stop carousel autoplay when video starts playing
-                  videoCarousel.trigger('stop.owl.autoplay');
-                  
-                  // Enable immersive mode when video starts playing
-                  if (!isImmersiveMode) {
-                    activateImmersiveMode(event.target);
-                  }
-                  
-                  // Pause other videos
-                  players.forEach(function(player, i) {
-                    if (i !== index && player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING) {
-                      player.pauseVideo();
-                    }
-                  });
-                } else if (event.data === YT.PlayerState.ENDED) {
-                  // Exit immersive mode when video ends
-                  if (isImmersiveMode) {
-                    deactivateImmersiveMode();
-                  }
-                  
-                  // Check if any videos are still playing
-                  var anyPlaying = players.some(function(player) {
-                    return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
-                  });
-                  
-                  if (!anyPlaying) {
-                    // Resume carousel autoplay if no videos are playing
-                    videoCarousel.trigger('play.owl.autoplay');
-                  }
-                } else if (event.data === YT.PlayerState.PAUSED) {
-                  // Don't exit immersive mode on pause, only check for autoplay resumption
-                  var anyPlaying = players.some(function(player) {
-                    return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
-                  });
-                  
-                  if (!anyPlaying) {
-                    // Resume carousel autoplay if no videos are playing
-                    videoCarousel.trigger('play.owl.autoplay');
-                  }
+                if (event.data === YT.PlayerState.ENDED) {
+                  deactivateImmersiveMode();
                 }
               }
             }
           });
         });
       }
-      
-      // Function to activate immersive mode
-      function activateImmersiveMode(player) {
-        activePlayer = player;
-        var overlay = document.getElementById('videoOverlay');
-        var videoWrapper = document.getElementById('immersiveVideoWrapper');
-        
-        // Get the iframe element and its original position
-        var iframe = player.getIframe();
-        originalPlayerParent = iframe.parentNode;
-        var originalRect = iframe.getBoundingClientRect();
-        
-        // First pause the video briefly while we move it
-        var currentTime = player.getCurrentTime();
-        player.pauseVideo();
-        
-        // Add initial inline styles to iframe for smooth transition
-        iframe.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-        
-        // Clone position data before moving the iframe
-        var iframeStyle = window.getComputedStyle(iframe);
-        var originalWidth = iframeStyle.width;
-        var originalHeight = iframeStyle.height;
-        
-        // Add the iframe to the immersive wrapper while preserving apparent position
-        videoWrapper.appendChild(iframe);
-        
-        // Force layout calculation before starting animation
-        void overlay.offsetWidth;
-        
-        // Display the overlay
-        overlay.classList.add('active');
-        
-        // Continue playing from where we left off after transition completes
-        setTimeout(function() {
-          player.seekTo(currentTime);
-          player.playVideo();
-        }, 600); // Match this timing with CSS transition duration
-        
-        isImmersiveMode = true;
-        
-        // Add escape key listener
-        document.addEventListener('keydown', handleEscapeKey);
-        
-        // Prevent scrolling of background content while in immersive mode
-        document.body.style.overflow = 'hidden';
-      }
-      
+
       // Function to deactivate immersive mode
       function deactivateImmersiveMode() {
-        if (!activePlayer) return;
-        
+        if (!isImmersiveMode) return;
+        isImmersiveMode = false;
+
         var overlay = document.getElementById('videoOverlay');
-        var iframe = activePlayer.getIframe();
-        
-        // Pause the video before transitioning back
-        activePlayer.pauseVideo();
-        
-        // Start the overlay transition
+        var videoWrapper = document.getElementById('immersiveVideoWrapper');
+
+        if (activePlayer && activePlayer.destroy) {
+          activePlayer.destroy();
+        }
+        activePlayer = null;
+        videoWrapper.innerHTML = '';
+
         overlay.classList.remove('active');
-        
-        // Move the iframe back to its original location after the overlay transition
-        setTimeout(function() {
-          if (originalPlayerParent) {
-            // Reset any transition styles before moving back to original container
-            iframe.style.transition = '';
-            originalPlayerParent.appendChild(iframe);
-          }
-          
-          isImmersiveMode = false;
-          activePlayer = null;
-          
-          // Re-enable scrolling
-          document.body.style.overflow = '';
-        }, 500); // Slightly shorter than the overlay transition for smoother experience
-        
-        // Remove escape key listener
+        document.body.style.overflow = '';
         document.removeEventListener('keydown', handleEscapeKey);
+        videoCarousel.trigger('play.owl.autoplay');
       }
-      
+
       // Handle escape key press
       function handleEscapeKey(e) {
         if (e.key === 'Escape' && isImmersiveMode) {
@@ -1316,20 +1301,18 @@
           }
         });
 
+        // Open a video when its thumbnail is tapped (delegated so looped copies work too)
+        $('.video-carousel').on('click', '.yt-thumb', function() {
+          activateImmersiveMode($(this).attr('data-video-id'));
+        });
+
         // Handle horizontal scrolling with mouse wheel
         $('.owl-stage-outer').on('wheel', function(e) {
-          // Check if any video is playing before allowing scroll
-          var anyPlaying = players.some(function(player) {
-            return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
-          });
-          
-          if (!anyPlaying) {
-            e.preventDefault();
-            if (e.originalEvent.deltaY > 0) {
-              videoCarousel.trigger('next.owl.carousel', [300]);
-            } else {
-              videoCarousel.trigger('prev.owl.carousel', [300]);
-            }
+          e.preventDefault();
+          if (e.originalEvent.deltaY > 0) {
+            videoCarousel.trigger('next.owl.carousel', [300]);
+          } else {
+            videoCarousel.trigger('prev.owl.carousel', [300]);
           }
         });
 
@@ -1342,17 +1325,6 @@
         $('.next-video').click(function(e) {
           e.preventDefault();
           videoCarousel.trigger('next.owl.carousel', [300]);
-        });
-
-        // Stop autoplay when carousel is manually navigated
-        videoCarousel.on('changed.owl.carousel', function() {
-          var anyPlaying = players.some(function(player) {
-            return player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING;
-          });
-          
-          if (anyPlaying) {
-            videoCarousel.trigger('stop.owl.autoplay');
-          }
         });
 
         // Smooth scroll for anchor links
